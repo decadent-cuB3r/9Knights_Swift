@@ -18,6 +18,7 @@
 		1B1042AC291EB93000DC4676 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1042AB291EB93000DC4676 /* Map.swift */; };
 		1B1042B0291EB97400DC4676 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1042AF291EB97400DC4676 /* Personal.swift */; };
 		1B1042B2291EC46500DC4676 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1042B1291EC46500DC4676 /* Communication.swift */; };
+		852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F0D752923D5A100D57DF8 /* TabButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1B1042AB291EB93000DC4676 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		1B1042AF291EB97400DC4676 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
 		1B1042B1291EC46500DC4676 /* Communication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
+		852F0D752923D5A100D57DF8 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1B1042B3292331B700DC4676 /* Screen */,
 				1B10427D291D01DA00DC4676 /* _KnightsApp.swift */,
 				1B10427F291D01DA00DC4676 /* ContentView.swift */,
+				852F0D752923D5A100D57DF8 /* TabButton.swift */,
 				1B1042A8291EB8C000DC4676 /* TabView */,
 				1B104281291D01DB00DC4676 /* Assets.xcassets */,
 				1B104283291D01DB00DC4676 /* _Knights.entitlements */,
@@ -293,6 +296,7 @@
 				1B1042B0291EB97400DC4676 /* Personal.swift in Sources */,
 				1B1042AC291EB93000DC4676 /* Map.swift in Sources */,
 				1B1042AA291EB91A00DC4676 /* Explore.swift in Sources */,
+				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
