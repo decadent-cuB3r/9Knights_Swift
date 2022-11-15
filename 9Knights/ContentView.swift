@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     
@@ -26,6 +27,22 @@ struct ContentView: View {
         "交流",
         "個人"
     ]
+    
+    struct Triangle : Shape {
+        
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+
+            path.move(to: CGPoint(x: rect.maxX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+            
+
+            return path
+        }
+    }
+    
     
     var body: some View {
         VStack{
@@ -68,37 +85,70 @@ struct ContentView: View {
                     }
                 }
             }
-            
-            HStack{
-                ForEach(0..<5, id: \.self ){ number in
-                    Spacer()
-                    Button( action: {
-                        self.selectedIndex = number
-                    }, label: {
-                        VStack{
-                            Image(systemName: icons[number])
-                                .font(.system(size: 25,
-                                              weight: .regular,
-                                              design: .default))
-                                .foregroundColor( selectedIndex == number ? Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1) : Color(UIColor.lightGray))
-                            Text(tabWords[number])
-                                .font(.system(size: 10))
-                                .padding(1)
-                                .foregroundColor(selectedIndex == number ? Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1) : Color(UIColor.lightGray))
-                        }
-                        
-                    })
-                    Spacer()
+            ZStack{
+                HStack{
+                    ForEach(0..<5, id: \.self ){ number in
+                        Spacer()
+                        Button( action: {
+                            self.selectedIndex = number
+                        }, label: {
+                            if number == 2{
+                                VStack{
+                                   Image(systemName: icons[number])
+                                       .font(.system(size: 25,
+                                                     weight: .regular,
+                                                     design: .default))
+                                       .foregroundColor( .white )
+                                       .frame(width: 50, height: 50)
+                                       .padding(-2)
+                                }.cornerRadius(10)
+                            }else{
+                                VStack{
+                                   Image(systemName: icons[number])
+                                       .font(.system(size: 25,
+                                                     weight: .regular,
+                                                     design: .default))
+                                       .foregroundColor( selectedIndex == number ? Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1) : Color(UIColor.lightGray))
+                                   Text(tabWords[number])
+                                       .font(.system(size: 10))
+                                       .padding(1)
+                                       .foregroundColor(selectedIndex == number ? Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1) : Color(UIColor.lightGray))
+                               }
+                            }
+                            
+                        })
+                        Spacer()
+                    }
+                    .frame(height: 90)
+                    .padding(.bottom, 10)
                 }
-                .frame(height: 80)
-                .padding(.bottom, 20)
-            }
-            .background(.white)
-            .cornerRadius(30)
-            .shadow(color: Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 1) ,radius: 5)
-        }
-        .edgesIgnoringSafeArea(.bottom)
-        
+                .background(.white)
+                .cornerRadius(30)
+                .shadow(color: Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 1) ,radius: 5)
+                
+                    Button( action: {
+                    }, label: {
+                            VStack{
+                                Image(systemName: icons[2])
+                                    .font(.system(size: 35,
+                                                  weight: .regular,
+                                                  design: .default))
+                                    .foregroundColor( .white )
+                                    .frame(width: 70, height: 60)
+                                    .background( Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1 ))
+                                    .padding(.bottom,-8)
+                                Triangle()
+                                    .frame(width: 70, height: 30)
+                                    .padding(0)
+                                    .foregroundColor( Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1 ))
+                            }
+                            .cornerRadius(5)
+                            .frame(width: 0, height: 0)
+                    }
+                    )
+                    .padding(.bottom, 40)
+                }
+            }.edgesIgnoringSafeArea(.bottom)
     }
 }
 
