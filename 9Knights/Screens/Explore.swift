@@ -6,10 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Explore: View {
+    
+    private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
-        Text("Explore")
+        ScrollView{
+            LazyVGrid(columns: threeColumnGrid) {
+                
+            }
+        }
     }
 }
 

@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct TabButton: View {
     @State var selectedIndex = 0
+    @State var shouldShowModal = false
     
     let icons = [
         "house",
@@ -49,8 +51,17 @@ struct TabButton: View {
     
     
     var body: some View {
+        
+        
         VStack{
             ZStack{
+                Spacer()
+                    .fullScreenCover(isPresented: $shouldShowModal, content: {
+                        Button(action: {shouldShowModal.toggle()}, label : {
+                            Text("fullscreen cover")
+                        })
+                    })
+                
                 switch selectedIndex {
                 case 0 :
                     NavigationView{
@@ -91,6 +102,11 @@ struct TabButton: View {
                     ForEach(0..<5, id: \.self ){ number in
                         Spacer()
                         Button( action: {
+                            if number == 2 {
+                                shouldShowModal.toggle()
+                                return
+                            }
+                            
                             self.selectedIndex = number
                         }, label: {
                             if number == 2{

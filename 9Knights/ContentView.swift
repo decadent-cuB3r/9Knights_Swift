@@ -9,8 +9,14 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    @State var isLogin = true
+
     var body: some View {
-        TabButton()
+        if isLogin {
+            TabButton()
+        } else {
+            Login()
+        }
     }
 }
 
