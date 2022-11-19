@@ -6,18 +6,27 @@
 //
 
 import SwiftUI
-import Firebase
+import FirebaseFirestoreSwift
+import FirebaseFirestore
+
+
+struct Event Codable, Identifiable {
+    @DocumentID var id: String?
+    var eventName: String
+    var tags: [String]
+    var photo: String
+}
 
 struct Explore: View {
-    
+    @FirestoreQuery(collectionPath: "events") var events: [Event]
     private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        ScrollView{
-            LazyVGrid(columns: threeColumnGrid) {
-                
-            }
+        Text("Hello World")
+        ForEach(events) { event in
+            /*@START_MENU_TOKEN@*/Text(event.eventName)/*@END_MENU_TOKEN@*/
         }
+        
     }
 }
 

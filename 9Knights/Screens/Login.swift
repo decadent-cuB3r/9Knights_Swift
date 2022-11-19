@@ -12,6 +12,8 @@ struct Login: View {
     @State private var password = ""
     
     let SystemGray = Color(red: 0.925, green: 0.925, blue: 0.925)
+    let LoginButton = Color(red: 0.262, green: 0.254, blue: 0.246)
+    let FacebookBlue = Color(red: 0.259, green: 0.404, blue: 0.698)
     
     var body: some View {
         ZStack {
@@ -34,6 +36,7 @@ struct Login: View {
                         .cornerRadius(10)
                         .border(.black)
                     )
+                
                 TextField("密碼", text: $password)
                     .frame(width: 300, height: 50)
                     .foregroundColor(SystemGray)
@@ -47,10 +50,41 @@ struct Login: View {
                     
                 }
                 
-                
+                //Login Button
+                Button {
+                    //Login func
+                } label: {
+                    Text("登入")
+                        .foregroundColor(.white)
+                        .padding()
+                }.background(
+                    RoundedRectangle(cornerRadius: 4.0)
+                        .foregroundColor(LoginButton)
+                        .frame(width: 300, height: 50)
+                )
+
+                //Facebook Login Button
+                Button {
+                    //Login with facebook func
+                } label: {
+                    Text("登入facebook繼續")
+                        .foregroundColor(.white)
+                }.background {
+                    RoundedRectangle(cornerRadius: 4.0)
+                        .frame(width: 300, height: 50)
+                        .foregroundColor(FacebookBlue)
+                }
+
+
             }
         }.ignoresSafeArea().fixedSize()
     }
+    
+    //function
+    func login() {
+        
+    }
+    
 }
 
 struct Login_Previews: PreviewProvider {
