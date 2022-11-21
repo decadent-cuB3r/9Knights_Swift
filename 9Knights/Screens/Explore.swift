@@ -6,27 +6,42 @@
 //
 
 import SwiftUI
-import FirebaseFirestoreSwift
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
+struct EventTileView: View {
+    var event: Event
+    
+    var body: some View {
+        NavigationLink {
+            //destination
+        } label: {
+            ZStack{
+                VStack{
+                    AsyncImage(url: URL(string: event.photo), scale: 2.0)
+                    
+                    Text(event.eventName)
+                }
+                RoundedRectangle(cornerRadius: 6.0)
+            }.frame(width: 200, height: 200).fixedSize()
+        }
 
-struct Event Codable, Identifiable {
-    @DocumentID var id: String?
-    var eventName: String
-    var tags: [String]
-    var photo: String
+    }
 }
 
 struct Explore: View {
+    
     @FirestoreQuery(collectionPath: "events") var events: [Event]
-    private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        Text("Hello World")
-        ForEach(events) { event in
-            /*@START_MENU_TOKEN@*/Text(event.eventName)/*@END_MENU_TOKEN@*/
+        NavigationView {
+            List {
+                ForEach(events) { event in
+                    Text(event.eventName)
+                }
+            }
+            .navigationTitle("探索旅程")
         }
-        
     }
 }
 
