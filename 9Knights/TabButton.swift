@@ -8,6 +8,13 @@
 import SwiftUI
 import UIKit
 
+//Static Button
+struct StaticButtonStyle: ButtonStyle{
+    func makeBody (configuration: Configuration) -> some View{
+        configuration.label
+    }
+}
+
 struct Popup: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -22,7 +29,6 @@ struct Popup: View {
                 VStack{
                     Button(
                         action: {
-        //                  presentationMode.wrappedValue.dismiss()
                             showModal.toggle()
                         }, label: {
                             Image(systemName: "xmark")
@@ -83,6 +89,7 @@ struct Popup: View {
                 
     }
 }
+
 struct PopBackground: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -121,11 +128,7 @@ struct TabButton: View {
         "個人"
     ]
     
-    struct StaticButtonStyle: ButtonStyle{
-        func makeBody (configuration: Configuration) -> some View{
-            configuration.label
-        }
-    }
+    
     
     struct Triangle : Shape {
         
