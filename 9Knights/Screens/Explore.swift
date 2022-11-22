@@ -13,18 +13,17 @@ struct EventTileView: View {
     var event: Event
     
     var body: some View {
-        NavigationLink {
-            //destination
-        } label: {
+        NavigationLink(destination: Text("second View")){
             ZStack{
                 VStack{
-                    AsyncImage(url: URL(string: event.photo), scale: 2.0)
+//                    AsyncImage(url: URL(string: event.photo), scale: 2.0)
                     
                     Text(event.eventName)
                 }
                 RoundedRectangle(cornerRadius: 6.0)
+                    .foregroundColor(.white)
             }.frame(width: 200, height: 200).fixedSize()
-        }
+        }.buttonStyle(PlainButtonStyle())
 
     }
 }
@@ -34,13 +33,13 @@ struct Explore: View {
     @FirestoreQuery(collectionPath: "events") var events: [Event]
     
     var body: some View {
-        NavigationView {
-            List {
+        ScrollView {
+            let twoItemGrid = [GridItem(.flexible()), GridItem(.flexible())]
+            LazyVGrid(columns: twoItemGrid) {
                 ForEach(events) { event in
-                    Text(event.eventName)
+                    EventTileView(event: event)
                 }
             }
-            .navigationTitle("探索旅程")
         }
     }
 }

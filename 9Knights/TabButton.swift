@@ -150,7 +150,7 @@ struct TabButton: View {
                     
                     switch selectedIndex {
                     case 0 :
-                        Explore()
+                            Explore()
                     case 1 :
                         NavigationView{
                             VStack{
