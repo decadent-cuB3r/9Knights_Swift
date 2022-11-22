@@ -27,6 +27,8 @@
 		1B3049D629288A6F00FAE9B4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3049D529288A6F00FAE9B4 /* DataManager.swift */; };
 		1B3049DA2929306600FAE9B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3049D92929306500FAE9B4 /* GoogleService-Info.plist */; };
 		852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F0D752923D5A100D57DF8 /* TabButton.swift */; };
+		85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D1C292CBBEB0084D019 /* SplashScreenView.swift */; };
+		85442D1F292CC69A0084D019 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D1E292CC69A0084D019 /* Signup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		1B3049D529288A6F00FAE9B4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1B3049D92929306500FAE9B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		852F0D752923D5A100D57DF8 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		85442D1C292CBBEB0084D019 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		85442D1E292CC69A0084D019 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 				1B3049DC292A9C9500FAE9B4 /* Components */,
 				1B1042B3292331B700DC4676 /* Screens */,
 				1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */,
+				85442D1C292CBBEB0084D019 /* SplashScreenView.swift */,
 				1B10427F291D01DA00DC4676 /* ContentView.swift */,
 				852F0D752923D5A100D57DF8 /* TabButton.swift */,
 				1B104281291D01DB00DC4676 /* Assets.xcassets */,
@@ -158,6 +163,7 @@
 			children = (
 				1B1042A9291EB91A00DC4676 /* Explore.swift */,
 				1B1042B1291EC46500DC4676 /* Communication.swift */,
+				85442D1E292CC69A0084D019 /* Signup.swift */,
 				1B1042AF291EB97400DC4676 /* Personal.swift */,
 				1B1042AB291EB93000DC4676 /* Map.swift */,
 				1B1FA6D62923F6CA00AFCBE2 /* Login.swift */,
@@ -343,6 +349,8 @@
 				1B1042AC291EB93000DC4676 /* Map.swift in Sources */,
 				1B1042AA291EB91A00DC4676 /* Explore.swift in Sources */,
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
+				85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */,
+				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* DataManager.swift in Sources */,
 				1B1FA6D72923F6CA00AFCBE2 /* Login.swift in Sources */,
 			);

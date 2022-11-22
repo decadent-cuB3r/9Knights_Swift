@@ -10,70 +10,111 @@ import SwiftUI
 struct Login: View {
     @State private var email = ""
     @State private var password = ""
-    
-    let SystemGray = Color(red: 0.925, green: 0.925, blue: 0.925)
-    let LoginButton = Color(red: 0.262, green: 0.254, blue: 0.246)
-    let FacebookBlue = Color(red: 0.259, green: 0.404, blue: 0.698)
-    
+    @State private var passwordCheck = false
+
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(SystemGray)
-                .offset(x: 180, y: -180)
+                .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("ECECEC")]), startPoint: .leading, endPoint: .trailing))
+                .rotationEffect(.degrees(40))
+                .offset(x: 180, y: -250)
                 .frame(width: 500, height: 500)
             Circle()
-                .foregroundColor(SystemGray)
-                .offset(x: -180, y: 180)
+                .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("ECECEC")]), startPoint: .leading, endPoint: .trailing))
+                .rotationEffect(.degrees(50))
+                .offset(x: -180, y: 350)
             VStack{
-                
-                Text("9Knights")
+                Image("logoImage")
+                Image("logoWord")
                 TextField("電子信箱", text: $email)
+                    .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .frame(width: 300, height: 50)
-                    .foregroundColor(SystemGray)
-                    .background(
+                    .foregroundColor(Color("999999"))
+                    .background(Color("ECECEC"))
+                    .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(SystemGray)
-                        .cornerRadius(10)
-                        .border(.black)
+                            .stroke(Color.black, lineWidth: 1)
+                            
                     )
-                
+                    .padding(.bottom,10)
                 TextField("密碼", text: $password)
+                    .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .frame(width: 300, height: 50)
-                    .foregroundColor(SystemGray)
-                    .background(
+                    .background(Color("ECECEC"))
+                    .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(SystemGray)
-                        .cornerRadius(10)
-                        .border(.black)
+                            .stroke(Color.black, lineWidth: 1)
+                            
                     )
-                HStack{
                     
-                }
+                HStack{
+                    Button{
+                        passwordCheck.toggle()
+                        
+                    } label: {
+                        HStack{
+                            Image(systemName: passwordCheck ? "checkmark.square": "square")
+                                .padding(.trailing, -5)
+                            Text("保持登入")
+                                .font(.system(size: 14))
+                                .foregroundColor(.black)
+                        }
+                    }.buttonStyle(StaticButtonStyle())
+                    Spacer()
+                    Button{
+                        
+                    }label: {
+                        Text("忘記密碼")
+                            .font(.system(size: 14))
+                            .foregroundColor(.black)
+                            .underline()
+                    }
+                }.frame(width: 300)
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
                 
                 //Login Button
                 Button {
                     //Login func
                 } label: {
+                    Spacer()
                     Text("登入")
                         .foregroundColor(.white)
-                        .padding()
-                }.background(
-                    RoundedRectangle(cornerRadius: 4.0)
-                        .foregroundColor(LoginButton)
-                        .frame(width: 300, height: 50)
-                )
-
+                    Spacer()
+                }
+                .frame(width: 300, height: 50)
+                .background(Color("43413F"))
+                .cornerRadius(20)
+                .padding(.bottom, 20)
+                
+                Text("或")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color("999999"))
+                    .padding(.bottom,20)
                 //Facebook Login Button
+
                 Button {
                     //Login with facebook func
                 } label: {
+                    Spacer()
                     Text("登入facebook繼續")
                         .foregroundColor(.white)
-                }.background {
-                    RoundedRectangle(cornerRadius: 4.0)
-                        .frame(width: 300, height: 50)
-                        .foregroundColor(FacebookBlue)
+                    Spacer()
                 }
+                .frame(width: 300, height: 50)
+                .background(Color("4267B2"))
+                .cornerRadius(20)
+                HStack{
+                    Text("還沒有帳號？")
+                        .font(.system(size: 14))
+                    Button{
+                        //signup
+                    } label: {
+                        Text("點此註冊新帳號")
+                            .font(.system(size: 14))
+                            .foregroundColor(.black)
+                            .underline()
+                    }
+                }.padding(10)
 
 
             }
