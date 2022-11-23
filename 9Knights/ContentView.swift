@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    @State var isLogin = true
+    @State var isLogin = false
 
     var body: some View {
         if isLogin {

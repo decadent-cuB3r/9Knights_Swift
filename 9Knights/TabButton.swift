@@ -85,6 +85,7 @@ struct Popup: View {
                 }
                 
             }.edgesIgnoringSafeArea(.all)
+            .navigationBarBackButtonHidden(true)
                 .padding(.top,620)
                 
     }

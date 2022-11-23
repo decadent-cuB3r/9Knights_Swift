@@ -31,7 +31,6 @@ struct Login: View {
                     TextField("電子信箱", text: $email)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
-                        .foregroundColor(Color("999999"))
                         .background(Color("ECECEC"))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -74,7 +73,7 @@ struct Login: View {
                     
                     //Login Button
                     Button {
-                        //Login func
+                        path.append("SetupProfile")
                     } label: {
                         Spacer()
                         Text("登入")
@@ -116,9 +115,14 @@ struct Login: View {
                                     .underline()
                             }.navigationDestination(for: String.self) { view in
                                 switch view {
+                                case "SetupProfile":
+                                    SetupProfile(path:$path)
+                                case "SetupPhoto":
+                                    SetupPhoto(path:$path)
+                                case "TabButton":
+                                    TabButton()
                                 case "Signup":
                                     Signup()
-
                                 default:
                                     Text("Unknown")
                                 }
