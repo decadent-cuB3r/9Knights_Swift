@@ -12,18 +12,16 @@ import FirebaseFirestoreSwift
 
 struct Event: Codable, Identifiable {
     @DocumentID var id: String?
-    let eventName: String
-    let tags: [String]
-    let photo: String
-    let host: String
-}
-
-struct Post: Codable, Identifiable {
-    @DocumentID var id: String?
+    var eventName: String
+    var tags: [String]
+    var photo: String
+    var host: String
+    var startDate: Date
+    var endDate: Date
     
 }
 
-struct Tag: Codable, Identifiable {
+struct Post: Codable, Identifiable {
     @DocumentID var id: String?
     
 }
