@@ -27,14 +27,14 @@ struct SetupProfile: View {
             Spacer()
         }
         .frame(width: 50, height: 50)
-        .background(Color("DA4F40"))
+        .background(Color("Red"))
         .cornerRadius(50)
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 60, trailing: 0))
     }
     
     var body: some View {
         ZStack(alignment: .bottom){
-            Color("FAF3EA")
+            Color("CreamyWhite")
                 .ignoresSafeArea(.all)
             
             VStack{
@@ -50,7 +50,7 @@ struct SetupProfile: View {
                         TextField("使用者暱稱", text: $userName)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
-                            .background(Color("ECECEC"))
+                            .background(Color("Gray"))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
@@ -58,7 +58,7 @@ struct SetupProfile: View {
                         TextField("居住地區", text: $email)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
-                            .background(Color("ECECEC"))
+                            .background(Color("Gray"))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
@@ -66,7 +66,7 @@ struct SetupProfile: View {
                         TextField("您的愛車", text: $password)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
-                            .background(Color("ECECEC"))
+                            .background(Color("Gray"))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
@@ -80,7 +80,7 @@ struct SetupProfile: View {
                             Spacer()
                         }
                         .frame(width: 300, height: 50)
-                        .background(Color("43413F"))
+                        .background(Color("BlackBtn"))
                         .cornerRadius(20)
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 130, trailing: 0))
                         }

@@ -75,14 +75,14 @@ struct SetupPhoto: View {
             Spacer()
         }
         .frame(width: 50, height: 50)
-        .background(Color("DA4F40"))
+        .background(Color("Red"))
         .cornerRadius(50)
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 60, trailing: 0))
     }
     
     var body: some View {
         ZStack(alignment: .bottom){
-            Color("FAF3EA")
+            Color("CreamyWhite")
                 .ignoresSafeArea(.all)
             
             VStack{
@@ -111,7 +111,7 @@ struct SetupPhoto: View {
                                     .font(.system(size: 100))
                                     .foregroundColor(.gray)
                                     .zIndex(1))
-                                .background(Color("ECECEC"))
+                                .background(Color("Gray"))
                                 .cornerRadius(200)
                                 .clipShape(Circle())
                                 .overlay(Circle().stroke(Color.black, lineWidth: 1))
@@ -139,7 +139,7 @@ struct SetupPhoto: View {
                             Spacer()
                         }
                         .frame(width: 300, height: 50)
-                        .background(Color("43413F"))
+                        .background(Color("BlackBtn"))
                         .cornerRadius(20)
                         .padding(EdgeInsets(top: 30, leading: 0, bottom: 10, trailing: 0))
                         Button {
@@ -147,7 +147,7 @@ struct SetupPhoto: View {
                         } label: {
                             Spacer()
                             Text("稍後設定")
-                                .foregroundColor(Color("737373"))
+                                .foregroundColor(Color("WordGray"))
                             Spacer()
                         }
                         .cornerRadius(20)

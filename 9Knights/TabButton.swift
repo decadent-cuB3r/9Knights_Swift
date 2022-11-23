@@ -35,7 +35,7 @@ struct Popup: View {
                                 .font(.system(size: 20,
                                               weight: .regular,
                                               design: .default))
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color("WordGray"))
                                 .font(.largeTitle)
                                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 20))
                         }
@@ -55,7 +55,7 @@ struct Popup: View {
                                         .padding(.bottom, 0.5)
                                     Text("創建行程認識更多車友吧！")
                                         .font(.system(size: 16))
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(Color("WordGray"))
                                 }
                                 Spacer()
                             }).frame(maxWidth: .infinity)
@@ -76,7 +76,7 @@ struct Popup: View {
                                         .padding(.bottom, 0.5)
                                     Text("分享您的經驗與體悟給大家吧！")
                                         .font(.system(size: 16))
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(Color("WordGray"))
                                 }
                                 Spacer()
                             }).frame(maxWidth: .infinity)
@@ -219,11 +219,11 @@ struct TabButton: View {
                                                 .font(.system(size: 25,
                                                               weight: .regular,
                                                               design: .default))
-                                                .foregroundColor( selectedIndex == number ? Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1) : Color(UIColor.lightGray))
+                                                .foregroundColor( selectedIndex == number ? Color("Red") : Color("WordLightGray"))
                                             Text(tabWords[number])
                                                 .font(.system(size: 10))
                                                 .padding(1)
-                                                .foregroundColor(selectedIndex == number ? Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1) : Color(UIColor.lightGray))
+                                                .foregroundColor(selectedIndex == number ? Color("Red") : Color("WordLightGray"))
                                         }
                                     }
                                 }
@@ -248,12 +248,12 @@ struct TabButton: View {
                                                   design: .default))
                                     .foregroundColor( .white )
                                     .frame(width: 70, height: 60)
-                                    .background( Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1 ))
+                                    .background( Color("Red"))
                                     .padding(.bottom,-8)
                                 Triangle()
                                     .frame(width: 70, height: 25)
                                     .padding(0)
-                                    .foregroundColor( Color(red: 0.8549, green: 0.3098, blue: 0.251, opacity: 1 ))
+                                    .foregroundColor( Color("Red"))
                             }
                             .cornerRadius(10)
                             .frame(width: 0, height: 0)
