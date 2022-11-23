@@ -1,19 +1,21 @@
 //
-//  Signup.swift
+//  SetupProfile.swift
 //  9Knights
 //
-//  Created by decadent cub3r on 2022/11/22.
+//  Created by decadent cub3r on 2022/11/23.
 //
 
 import SwiftUI
 
-struct Signup: View {
+struct SetupProfile: View {
     @State private var userName = ""
     @State private var email = ""
     @State private var password = ""
     @State private var passwordCheck = ""
     @State private var positionY = 700
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Binding var path: NavigationPath
+    @State var appear = true
 
     var btnBack : some View {
         Button{
@@ -42,10 +44,10 @@ struct Signup: View {
                 }.padding(.top,80)
                 VStack{
                     VStack{
-                        Text("註冊新帳號")
+                        Text("創建個人資料")
                             .font(.system(size: 32,
                                           weight: .bold))
-                        TextField("使用者名稱", text: $userName)
+                        TextField("使用者暱稱", text: $userName)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
                             .background(Color("Gray"))
@@ -53,7 +55,7 @@ struct Signup: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
                             ).padding(10)
-                        TextField("電子信箱", text: $email)
+                        TextField("居住地區", text: $email)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
                             .background(Color("Gray"))
@@ -61,15 +63,7 @@ struct Signup: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
                             ).padding(10)
-                        TextField("密碼", text: $password)
-                            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
-                            .frame(width: 300, height: 50)
-                            .background(Color("Gray"))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 1)
-                            ).padding(10)
-                        TextField("確認密碼", text: $passwordCheck)
+                        TextField("您的愛車", text: $password)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
                             .background(Color("Gray"))
@@ -78,42 +72,41 @@ struct Signup: View {
                                     .stroke(Color.black, lineWidth: 1)
                             ).padding(10)
                         Button {
-                            //Login func
+                            path.append("SetupPhoto")
                         } label: {
                             Spacer()
-                            Text("註冊")
+                            Text("完成")
                                 .foregroundColor(.white)
                             Spacer()
                         }
                         .frame(width: 300, height: 50)
                         .background(Color("BlackBtn"))
                         .cornerRadius(20)
-                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 70, trailing: 0))
+                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 130, trailing: 0))
+                        }
                     }
-                   
                     .frame(width: 390, height: 700)
                     .background(.white)
                     .cornerRadius(60)
-                    //                    .onAppear(){
-                    //                        positionY += 200
-                    //                    }
                 }
                 .offset(y:CGFloat(positionY))
                 .animation(.spring(), value: positionY)
-                .onAppear(){
+                .onAppear(){ if appear{
                     positionY -= 700
+                    appear = false
+                }
+                }
+            }.navigationBarBackButtonHidden(true)
+        }
+    }
+
+
+
+struct SetupProfile_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+                    SetupProfile(path: .constant(NavigationPath()))
                 }
             }
-                
-            
-             
-        }
-        .navigationBarBackButtonHidden(true)
     }
-}
-struct Signup_Previews: PreviewProvider {
-    static var previews: some View {
-        Signup()
-    }
-}
 

@@ -17,12 +17,12 @@ struct Login: View {
         NavigationStack(path: $path) {
             ZStack {
                 Circle()
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("ECECEC")]), startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("Gray")]), startPoint: .leading, endPoint: .trailing))
                     .rotationEffect(.degrees(40))
                     .offset(x: 180, y: -250)
                     .frame(width: 500, height: 500)
                 Circle()
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("ECECEC")]), startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("Gray")]), startPoint: .leading, endPoint: .trailing))
                     .rotationEffect(.degrees(50))
                     .offset(x: -180, y: 350)
                 VStack{
@@ -31,8 +31,7 @@ struct Login: View {
                     TextField("電子信箱", text: $email)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
-                        .foregroundColor(Color("999999"))
-                        .background(Color("ECECEC"))
+                        .background(Color("Gray"))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.black, lineWidth: 1)
@@ -42,7 +41,7 @@ struct Login: View {
                     TextField("密碼", text: $password)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
-                        .background(Color("ECECEC"))
+                        .background(Color("Gray"))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.black, lineWidth: 1)
@@ -74,7 +73,7 @@ struct Login: View {
                     
                     //Login Button
                     Button {
-                        //Login func
+                        path.append("SetupProfile")
                     } label: {
                         Spacer()
                         Text("登入")
@@ -82,13 +81,13 @@ struct Login: View {
                         Spacer()
                     }
                     .frame(width: 300, height: 50)
-                    .background(Color("43413F"))
+                    .background(Color("BlackBtn"))
                     .cornerRadius(20)
                     .padding(.bottom, 20)
                     
                     Text("或")
                         .font(.system(size: 14))
-                        .foregroundColor(Color("999999"))
+                        .foregroundColor(Color("WordGray"))
                         .padding(.bottom,20)
                     //Facebook Login Button
 
@@ -101,7 +100,7 @@ struct Login: View {
                         Spacer()
                     }
                     .frame(width: 300, height: 50)
-                    .background(Color("4267B2"))
+                    .background(Color("fbBtn"))
                     .cornerRadius(20)
                     HStack{
                         Text("還沒有帳號？")
@@ -116,9 +115,14 @@ struct Login: View {
                                     .underline()
                             }.navigationDestination(for: String.self) { view in
                                 switch view {
+                                case "SetupProfile":
+                                    SetupProfile(path:$path)
+                                case "SetupPhoto":
+                                    SetupPhoto(path:$path)
+                                case "TabButton":
+                                    TabButton()
                                 case "Signup":
                                     Signup()
-
                                 default:
                                     Text("Unknown")
                                 }
