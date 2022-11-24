@@ -89,7 +89,7 @@ struct Signup: View {
                             Spacer()
                         }
                         .frame(width: 300, height: 50)
-                        .background(Color("BlackBtn"))
+                        .background(Color("BtnBlack"))
                         .cornerRadius(20)
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 70, trailing: 0))
                     }

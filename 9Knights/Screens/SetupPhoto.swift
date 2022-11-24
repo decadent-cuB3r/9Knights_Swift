@@ -139,7 +139,7 @@ struct SetupPhoto: View {
                             Spacer()
                         }
                         .frame(width: 300, height: 50)
-                        .background(Color("BlackBtn"))
+                        .background(Color("BtnBlack"))
                         .cornerRadius(20)
                         .padding(EdgeInsets(top: 30, leading: 0, bottom: 10, trailing: 0))
                         Button {

@@ -83,7 +83,7 @@ struct Login: View {
                         Spacer()
                     }
                     .frame(width: 300, height: 50)
-                    .background(Color("BlackBtn"))
+                    .background(Color("BtnBlack"))
                     .cornerRadius(20)
                     .padding(.bottom, 20)
                     
@@ -102,7 +102,7 @@ struct Login: View {
                         Spacer()
                     }
                     .frame(width: 300, height: 50)
-                    .background(Color("fbBtn"))
+                    .background(Color("BtnFb"))
                     .cornerRadius(20)
                     HStack{
                         Text("還沒有帳號？")
