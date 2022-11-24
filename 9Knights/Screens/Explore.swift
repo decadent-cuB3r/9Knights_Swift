@@ -16,15 +16,29 @@ struct EventTileView: View {
     var body: some View {
         NavigationLink(destination: Text("second View")){
             ZStack{
-                RoundedRectangle(cornerRadius: 6.0)
+                RoundedRectangle(cornerRadius: 10.0)
                     .foregroundColor(.white)
-                VStack{
-//                    AsyncImage(url: URL(string: event.photo), scale: 2.0)
+                    .shadow(radius: 5.0)
+                VStack(alignment: .leading){
+                    //Event Image
+                    AsyncImage(url: URL(string: event.photo)){ image in
+                        image.resizable()
+                            .cornerRadius(10)
+                            .padding(2.0)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    //Event Tags
                     
+                    
+                    //Event Date
                     Text("\(event.startDate.formatted(.dateTime.month().day()))")
-                        .foregroundColor(Color("737373"))
+                        .foregroundColor(Color("WordGray"))
+                    //Event Name
                     Text(event.eventName)
                         .foregroundColor(.black)
+                    //Event Host 待翻譯中文
+                    Text("由 \(event.host) 創建")
 
                 }
             }.frame(width: 200, height: 200).fixedSize()
@@ -43,34 +57,42 @@ struct Explore: View {
     var body: some View {
         NavigationStack{
             ScrollView {
-                HStack{
-                    Button {
-                        self.selectedTag = "All"
-                    } label: {
-                        Capsule()
-                            .overlay(
-                                Text("全部").foregroundColor(.black)
-                            )
-                            .foregroundColor(
-                                selectedTag == "All" ? Color("DA4F40") : Color("FAF3EA")
-                            )
-                    }.buttonStyle(StaticButtonStyle())
-
-                    ForEach(tags){tag in
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack{
+                        Spacer(minLength: 25)
                         Button {
-                            self.selectedTag = tag.tagID
-                            print(tag.tagID)
+                            self.selectedTag = "All"
                         } label: {
                             Capsule()
                                 .overlay(
-                                    Text(tag.tagName).foregroundColor(.black)
+                                    Text("全部").foregroundColor(.black)
                                 )
                                 .foregroundColor(
-                                    selectedTag == tag.tagID ? Color("DA4F40") : Color("FAF3EA")
+                                    selectedTag == "All" ? Color("Red") : Color("CreamyWhite")
                                 )
+                                .frame(width: 100, height: 40)
+                                .shadow(radius: 2.0)
                         }.buttonStyle(StaticButtonStyle())
-                    }
+                        ForEach(tags){tag in
+                            Spacer(minLength: 25)
+                            Button {
+                                self.selectedTag = tag.tagID
+                                print(tag.tagID)
+                            } label: {
+                                Capsule()
+                                    .overlay(
+                                        Text(tag.tagName).foregroundColor(.black)
+                                    )
+                                    .foregroundColor(
+                                        selectedTag == tag.tagID ? Color("Red") : Color("CreamyWhite")
+                                    )
+                                    .frame(width: 100, height: 40)
+                                    .shadow(radius: 2.0)
+                            }.buttonStyle(StaticButtonStyle())
+                        }
+                    }.frame(height: 60)
                 }
+                
                 let twoItemGrid = [GridItem(.flexible()), GridItem(.flexible())]
                 LazyVGrid(columns: twoItemGrid) {
                     ForEach(events) { event in

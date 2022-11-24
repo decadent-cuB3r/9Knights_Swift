@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct Login: View {
     @State private var email = ""
@@ -92,7 +94,7 @@ struct Login: View {
                     //Facebook Login Button
 
                     Button {
-                        //Login with facebook func
+                        //Login with Facebook
                     } label: {
                         Spacer()
                         Text("登入facebook繼續")

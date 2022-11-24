@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import Firebase
 
 struct Signup: View {
     @State private var userName = ""
@@ -15,6 +17,7 @@ struct Signup: View {
     @State private var positionY = 700
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
+  
     var btnBack : some View {
         Button{
             self.presentationMode.wrappedValue.dismiss()
