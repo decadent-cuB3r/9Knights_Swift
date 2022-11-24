@@ -16,32 +16,47 @@ struct EventTileView: View {
     var body: some View {
         NavigationLink(destination: Text("second View")){
             ZStack{
+                Rectangle()
+                    .foregroundColor(Color("ItemShadow"))
+                    .cornerRadius(10)
+                    .frame(width: 175, height: 204)
+                    .offset(y:4)
                 RoundedRectangle(cornerRadius: 10.0)
-                    .foregroundColor(.white)
-                    .shadow(radius: 5.0)
+                    .stroke(Color("ItemStroke"), lineWidth: 1)
+                    .background(.white)
+                    .cornerRadius(10)
+                    .frame(width: 180,height: 200)
                 VStack(alignment: .leading){
                     //Event Image
                     AsyncImage(url: URL(string: event.photo)){ image in
                         image.resizable()
                             .cornerRadius(10)
-                            .padding(2.0)
+                            .padding(.top,-5)
                     } placeholder: {
                         ProgressView()
-                    }
+                    }.frame(width: 166,height: 98)
                     //Event Tags
                     
                     
                     //Event Date
                     Text("\(event.startDate.formatted(.dateTime.month().day()))")
                         .foregroundColor(Color("WordGray"))
+                        .font(.system(size: 14, weight: .bold))
                     //Event Name
                     Text(event.eventName)
                         .foregroundColor(.black)
+                        .font(.system(size: 16, weight: .bold))
+                        .padding(.bottom,0.1)
                     //Event Host 待翻譯中文
                     Text("由 \(event.host) 創建")
+                        .foregroundColor(Color("WordGray"))
+                        .font(.system(size: 10, weight: .regular))
 
                 }
-            }.frame(width: 200, height: 200).fixedSize()
+            }
+            .frame(width: 180, height: 200)
+            .fixedSize()
+            
         }
 
     }
@@ -57,42 +72,56 @@ struct Explore: View {
     var body: some View {
         NavigationStack{
             ScrollView {
+                //tag Selection section
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack{
-                        Spacer(minLength: 25)
-                        Button {
-                            self.selectedTag = "All"
-                        } label: {
-                            ZStack{
-                                Capsule()
-                                    .stroke(Color("ItemStroke"), lineWidth: 1)
-                                    .background(
-                                        selectedTag == "All" ? Color("Red") : Color("CreamyWhite")
-                                    )
-                                    .cornerRadius(20)
-                                    .frame(width: 100, height: 40)
-                                    .shadow(radius: 1.0)
-                                Text("全部")
-                                    .foregroundColor(selectedTag == "All" ? Color(.white) : Color(.black))
-                                    .bold()
-                            }
+                        Spacer(minLength: 10)
+                        ZStack{
+                            Button {
+                                self.selectedTag = "All"
+                            } label: {
+                                ZStack{
+                                    Capsule()
+                                        .foregroundColor(Color("ItemShadow"))
+                                        .cornerRadius(20)
+                                        .frame(width: 87, height: 30)
+                                        .offset(y:4)
+                                    Capsule()
+                                        .stroke(Color("ItemStroke"), lineWidth: 2)
+                                        .background(
+                                            selectedTag == "All" ? Color("Red") : Color("CreamyWhite")
+                                        )
+                                        .cornerRadius(20)
+                                        .frame(width: 90, height: 30)
+                                    Text("全部")
+                                        .foregroundColor(selectedTag == "All" ? Color(.white) : Color(.black))
+                                        .bold()
+                                    
+                                }.frame(width: 90, height: 50)
 
-                        }.buttonStyle(StaticButtonStyle())
+                            }.buttonStyle(StaticButtonStyle())
+                            
+                            
+                        }
                         ForEach(tags){tag in
-                            Spacer(minLength: 25)
+                            Spacer(minLength: 20)
                             Button {
                                 self.selectedTag = tag.tagID
                                 print(tag.tagID)
                             } label: {
                                 ZStack{
                                     Capsule()
-                                        .stroke(Color("ItemStroke"), lineWidth: 1)
+                                        .foregroundColor(Color("ItemShadow"))
+                                        .cornerRadius(20)
+                                        .frame(width: 87, height: 30)
+                                        .offset(y:4)
+                                    Capsule()
+                                        .stroke(Color("ItemStroke"), lineWidth: 2)
                                         .background(
                                             selectedTag == tag.tagID ? Color("Red") : Color("CreamyWhite")
                                         )
                                         .cornerRadius(20)
-                                        .frame(width: 100, height: 40)
-                                        .shadow(radius: 2.0)
+                                        .frame(width: 90, height: 30)
                                     Text(tag.tagName)
                                         .foregroundColor(selectedTag == tag.tagID ? Color(.white) : Color(.black))
                                         .bold()
@@ -100,11 +129,12 @@ struct Explore: View {
                                 
                             }.buttonStyle(StaticButtonStyle())
                         }
-                    }.frame(height: 60)
+                    }.frame(height: 70)
                 }
                 
-                let twoItemGrid = [GridItem(.flexible()), GridItem(.flexible())]
-                LazyVGrid(columns: twoItemGrid) {
+                //Grid show Event View Tiles
+                let twoItemGrid = [GridItem(.flexible(),spacing: -10), GridItem(.flexible(),spacing: 0)]
+                LazyVGrid(columns: twoItemGrid,spacing: 20) {
                     ForEach(events) { event in
                         EventTileView(event: event)
                     }
@@ -115,22 +145,8 @@ struct Explore: View {
                                 //This is your made up title, put in the leading view so it is up top aligned with the plus button
                                 Text("探索旅程").font(.system(size: 32)).bold()
                                 //This is the plus button, on the right side, aka trailing view
-                                , trailing: Button(action: {
-
-                                }, label: {
+                                , trailing:
                                     HStack{
-                                        Button{
-                                            
-                                        } label: {
-                                            ZStack{
-                                                Circle()
-                                                    .frame(width: 40, height: 40)
-                                                    .foregroundColor(Color("Gray"))
-                                                Image(systemName: "bell")
-                                                    .font(Font.system(size: 16, weight: .semibold))
-                                                    .foregroundColor(Color("BtnGray"))
-                                            }
-                                        }
                                         Button{
                                             
                                         } label: {
@@ -143,8 +159,19 @@ struct Explore: View {
                                                     .foregroundColor(Color("BtnGray"))
                                             }
                                         }
+                                        Button{
+                                            
+                                        } label: {
+                                            ZStack{
+                                                Circle()
+                                                    .frame(width: 40, height: 40)
+                                                    .foregroundColor(Color("Gray"))
+                                                Image(systemName: "bell")
+                                                    .font(Font.system(size: 16, weight: .semibold))
+                                                    .foregroundColor(Color("BtnGray"))
+                                            }
+                                        }
                                     }
-                                })
                         )
         }
     }
