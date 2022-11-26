@@ -9,7 +9,30 @@ import SwiftUI
 
 struct Map: View {
     var body: some View {
-        Text("Map")
+        NavigationStack{
+            ScrollView{
+                
+            }
+            .navigationBarTitle("")
+            .navigationBarItems(leading:
+                                Text("旅程地圖").font(.system(size: 32)).bold().padding(.top,-8)
+                                , trailing:
+                                    HStack{
+                                        Button{
+                                            
+                                        } label: {
+                                            ZStack{
+                                                Circle()
+                                                    .frame(width: 40, height: 40)
+                                                    .foregroundColor(Color("Gray"))
+                                                Image(systemName: "message")
+                                                    .font(Font.system(size: 16, weight: .semibold))
+                                                    .foregroundColor(Color("BtnGray"))
+                                            }
+                                        }
+                                    }.padding(.top,-8)
+                        )
+        }
     }
 }
 

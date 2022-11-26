@@ -17,6 +17,7 @@
 		1B1042AC291EB93000DC4676 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1042AB291EB93000DC4676 /* Map.swift */; };
 		1B1042B0291EB97400DC4676 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1042AF291EB97400DC4676 /* Personal.swift */; };
 		1B1042B2291EC46500DC4676 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1042B1291EC46500DC4676 /* Communication.swift */; };
+		1B14C68B292FFCB100C150F2 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */; };
 		1B1FA6D72923F6CA00AFCBE2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1FA6D62923F6CA00AFCBE2 /* Login.swift */; };
 		1B3049BF2925E2F500FAE9B4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1B3049BE2925E2F500FAE9B4 /* FirebaseAnalytics */; };
 		1B3049C12925E2F500FAE9B4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1B3049C02925E2F500FAE9B4 /* FirebaseAuth */; };
@@ -66,6 +67,7 @@
 		1B1042AB291EB93000DC4676 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		1B1042AF291EB97400DC4676 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
 		1B1042B1291EC46500DC4676 /* Communication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
+		1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		1B1FA6D62923F6CA00AFCBE2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1B3049C9292681C900FAE9B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B3049D529288A6F00FAE9B4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		1B3049DC292A9C9500FAE9B4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* Event.swift in Sources */,
 				1B1FA6D72923F6CA00AFCBE2 /* Login.swift in Sources */,
+				1B14C68B292FFCB100C150F2 /* SegmentedControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

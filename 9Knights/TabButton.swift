@@ -117,7 +117,7 @@ struct TabButton: View {
         "house",
         "map",
         "plus",
-        "message",
+        "text.bubble",
         "person.circle"
     ]
     
@@ -154,28 +154,13 @@ struct TabButton: View {
                     
                     switch selectedIndex {
                     case 0 :
-                            Explore()
+                        Explore()
                     case 1 :
-                        NavigationView{
-                            VStack{
-                                Text("First Screen")
-                            }
-                            .navigationTitle("Map")
-                        }
+                        Map()
                     case 3 :
-                        NavigationView{
-                            VStack{
-                                Text("First Screen")
-                            }
-                            .navigationTitle("Communication")
-                        }
+                        Communication()
                     default:
-                        NavigationView{
-                            VStack{
-                                Text("Second Screen")
-                            }
-                            .navigationTitle("Person")
-                        }
+                        Personal()
                     }
                     
                 }

@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct EventTileView: View {
-    @FirestoreQuery(collectionPath: "tags") var tags: [Tag]
+    @FirestoreQuery(collectionPath: "areaTags") var tags: [Tag]
     var event: Event
     
     var body: some View {
@@ -100,9 +100,8 @@ struct Explore: View {
                                 }.frame(width: 90, height: 50)
 
                             }.buttonStyle(StaticButtonStyle())
-                            
-                            
                         }
+                        
                         ForEach(tags){tag in
                             Spacer(minLength: 20)
                             Button {
@@ -114,7 +113,7 @@ struct Explore: View {
                                         .foregroundColor(Color("ItemShadow"))
                                         .cornerRadius(20)
                                         .frame(width: 87, height: 30)
-                                        .offset(y:4)
+                                        .offset(y: 4)
                                     Capsule()
                                         .stroke(Color("ItemStroke"), lineWidth: 2)
                                         .background(
@@ -129,9 +128,20 @@ struct Explore: View {
                                 
                             }.buttonStyle(StaticButtonStyle())
                         }
-                    }.frame(height: 70)
+                    }.frame(height: 50)
                 }
-                
+                Button{
+                    
+                }label: {
+                    HStack{
+                        Image(systemName: "arrowtriangle.down.fill")
+                            .font(.system(size: 16))
+                        Text("依活動日期排序")
+                        Spacer()
+                    }
+                    .foregroundColor(Color("WordGray"))
+                    .padding(.leading,20)
+                }
                 //Grid show Event View Tiles
                 let twoItemGrid = [GridItem(.flexible(),spacing: -10), GridItem(.flexible(),spacing: 0)]
                 LazyVGrid(columns: twoItemGrid,spacing: 20) {
@@ -141,10 +151,9 @@ struct Explore: View {
                 }
             }
             .navigationBarTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
-                                //This is your made up title, put in the leading view so it is up top aligned with the plus button
-                                Text("探索旅程").font(.system(size: 32)).bold()
-                                //This is the plus button, on the right side, aka trailing view
+                                Text("探索旅程").font(.system(size: 32)).bold().padding(.top,-8)
                                 , trailing:
                                     HStack{
                                         Button{
@@ -171,7 +180,7 @@ struct Explore: View {
                                                     .foregroundColor(Color("BtnGray"))
                                             }
                                         }
-                                    }
+                                }.padding(.top,-8)
                         )
         }
     }
