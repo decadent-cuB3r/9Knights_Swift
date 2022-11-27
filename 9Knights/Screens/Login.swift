@@ -39,7 +39,7 @@ struct Login: View {
                                 .stroke(Color.black, lineWidth: 1)
                                 
                         )
-                        .padding(.bottom,10)
+                        .padding(.bottom,15)
                     TextField("密碼", text: $password)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
@@ -104,6 +104,7 @@ struct Login: View {
                     .frame(width: 300, height: 50)
                     .background(Color("BtnFb"))
                     .cornerRadius(20)
+                    .padding(1)
                     HStack{
                         Text("還沒有帳號？")
                             .font(.system(size: 14))
