@@ -63,7 +63,7 @@ struct EventTileView: View {
 }
 
 struct Explore: View {
-    
+    @State private var isPresented = false
     @FirestoreQuery(collectionPath: "events") var events: [Event]
     @FirestoreQuery(collectionPath: "areaTags") var tags: [Tag]
     
@@ -157,7 +157,7 @@ struct Explore: View {
                                 , trailing:
                                     HStack{
                                         Button{
-                                            
+                                            self.isPresented.toggle()
                                         } label: {
                                             ZStack{
                                                 Circle()
@@ -167,7 +167,7 @@ struct Explore: View {
                                                     .font(Font.system(size: 16, weight: .semibold))
                                                     .foregroundColor(Color("BtnGray"))
                                             }
-                                        }
+                                        }.fullScreenCover(isPresented: $isPresented, content: ExploreSearch.init)
                                         Button{
                                             
                                         } label: {
