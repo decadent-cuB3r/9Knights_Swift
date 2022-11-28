@@ -14,7 +14,7 @@ struct EventTileView: View {
     var event: Event
     
     var body: some View {
-        NavigationLink(destination: Text("second View")){
+        NavigationLink(destination: EventDetail(event: event)){
             ZStack{
                 Rectangle()
                     .foregroundColor(Color("ItemShadow"))

@@ -159,7 +159,7 @@ struct Personal: View {
                         }
                     }
                     .padding(.horizontal, 30)
-                    .frame(width: .infinity, height: 40)
+                    .padding(.vertical,10)
                     Divider()
                     Button{
                         //Button func
@@ -174,7 +174,7 @@ struct Personal: View {
                         }
                     }
                     .padding(.horizontal, 30)
-                    .frame(width: .infinity, height: 35)
+                    .padding(.vertical,10)
                     Divider()
                     Button{
                         
@@ -189,7 +189,7 @@ struct Personal: View {
                         }
                     }
                     .padding(.horizontal, 30)
-                    .frame(width: .infinity, height: 40)
+                    .padding(.vertical,10)
                     Divider()
                 }
                 Spacer()
