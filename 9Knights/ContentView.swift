@@ -9,10 +9,11 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    @State var isLogin = false
+    @StateObject var viewModel = AuthenticationViewModel()
+//    @State var isLogin = false
 
     var body: some View {
-        if isLogin {
+        if viewModel.isLogin {
             TabButton()
         } else {
             Login()
