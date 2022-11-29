@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Map: View {
     var body: some View {
-        NavigationStack{
+        NavigationView{
             ScrollView{
                 
             }

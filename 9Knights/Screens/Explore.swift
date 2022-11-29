@@ -19,29 +19,43 @@ struct EventTileView: View {
                 Rectangle()
                     .foregroundColor(Color("ItemShadow"))
                     .cornerRadius(10)
-                    .frame(width: 175, height: 204)
+                    .frame(width: 175, height: 208)
                     .offset(y:4)
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(Color("ItemStroke"), lineWidth: 1)
                     .background(.white)
                     .cornerRadius(10)
-                    .frame(width: 180,height: 200)
+                    .frame(width: 180,height: 204)
                 VStack(alignment: .leading){
                     //Event Image
                     AsyncImage(url: URL(string: event.photo)){ image in
                         image.resizable()
                             .cornerRadius(10)
-                            .padding(.top,-5)
                     } placeholder: {
                         ProgressView()
                     }.frame(width: 166,height: 98)
                     //Event Tags
-                    
+                    HStack{
+                        ForEach(event.tags, id: \.self){ tags in
+                            ZStack{
+                                Capsule()
+                                    .stroke(Color("ItemStroke"), lineWidth: 2)
+                                    .background( Color("CreamyWhite"))
+                                    .cornerRadius(20)
+                                    .frame(width: 50, height: 16)
+                                Text(tags)
+                                    .foregroundColor(Color(.black))
+                                    .bold()
+                                    .font(.system(size: 10))
+                            }
+                        }
+                    }
                     
                     //Event Date
                     Text("\(event.startDate.formatted(.dateTime.month().day()))")
                         .foregroundColor(Color("WordGray"))
                         .font(.system(size: 14, weight: .bold))
+                        .padding(.bottom, 0.1)
                     //Event Name
                     Text(event.eventName)
                         .foregroundColor(.black)
@@ -70,7 +84,7 @@ struct Explore: View {
     @State var selectedTag = "All"
     
     var body: some View {
-        NavigationStack{
+        NavigationView{
             ScrollView {
                 //tag Selection section
                 ScrollView(.horizontal, showsIndicators: false){
@@ -168,16 +182,18 @@ struct Explore: View {
                                                     .foregroundColor(Color("BtnGray"))
                                             }
                                         }.fullScreenCover(isPresented: $isPresented, content: ExploreSearch.init)
-                                        Button{
-                                            
-                                        } label: {
-                                            ZStack{
-                                                Circle()
-                                                    .frame(width: 40, height: 40)
-                                                    .foregroundColor(Color("Gray"))
-                                                Image(systemName: "bell")
-                                                    .font(Font.system(size: 16, weight: .semibold))
-                                                    .foregroundColor(Color("BtnGray"))
+                                        NavigationLink(destination: Notifications()){
+                                            Button{
+                                                
+                                            } label: {
+                                                ZStack{
+                                                    Circle()
+                                                        .frame(width: 40, height: 40)
+                                                        .foregroundColor(Color("Gray"))
+                                                    Image(systemName: "bell")
+                                                        .font(Font.system(size: 16, weight: .semibold))
+                                                        .foregroundColor(Color("BtnGray"))
+                                                }
                                             }
                                         }
                                 }.padding(.top,-8)

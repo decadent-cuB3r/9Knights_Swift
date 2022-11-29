@@ -141,7 +141,6 @@ struct TabButton: View {
             path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
             path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
             
-
             return path
         }
     }

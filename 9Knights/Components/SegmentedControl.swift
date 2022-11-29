@@ -65,7 +65,7 @@ struct SegmentedControl: View {
 
                VStack(alignment: .leading, spacing: 0) {
                    VStack(alignment: .leading, spacing: 0) {
-                       HStack(spacing: xSpace) {
+                       HStack(spacing: 50) {
                            ForEach(0 ..< items.count, id: \.self) { index in
                                segmentItemView(for: index)
                            }
@@ -78,11 +78,10 @@ struct SegmentedControl: View {
                                .foregroundColor(Color("Red"))
                                .frame(width: selectedItemWidth, height: 3)
                                .offset(x: selectedItemHorizontalOffset(), y: 0)
-                               .offset(x:-24)
                                .animation(Animation.linear(duration: 0.3))
                        }
                    }
-                   .padding(.horizontal, xSpace)
+                   .padding(.horizontal, 10)
                    
 
 
@@ -94,7 +93,7 @@ struct SegmentedControl: View {
        }
 
        private var selectedItemWidth: CGFloat {
-           return itemTitleSizes.count > selection ? itemTitleSizes[selection].width+50 : .zero
+           return itemTitleSizes.count > selection ? itemTitleSizes[selection].width : .zero
        }
 
        private func segmentItemView(for index: Int) -> some View {
@@ -137,6 +136,6 @@ struct SegmentedControl: View {
                .map { $0.element.width }
                .reduce(0, +)
 
-           return result + xSpace * CGFloat(selection)
+           return result + 50 * CGFloat(selection)
        }
 }
