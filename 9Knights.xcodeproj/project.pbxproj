@@ -36,6 +36,8 @@
 		85442D1F292CC69A0084D019 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D1E292CC69A0084D019 /* Signup.swift */; };
 		85442D21292D41DD0084D019 /* SetupProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D20292D41DD0084D019 /* SetupProfile.swift */; };
 		85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D22292E08F10084D019 /* SetupPhoto.swift */; };
+		85442D3F293518B80084D019 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D3E293518B80084D019 /* AuthenticationViewModel.swift */; };
+		85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D4129353AA50084D019 /* AuthenticationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		85442D1E292CC69A0084D019 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		85442D20292D41DD0084D019 /* SetupProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfile.swift; sourceTree = "<group>"; };
 		85442D22292E08F10084D019 /* SetupPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPhoto.swift; sourceTree = "<group>"; };
+		85442D3E293518B80084D019 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		85442D4129353AA50084D019 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,14 +181,12 @@
 		1B1042B3292331B700DC4676 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				85442D4029353A6C0084D019 /* Setup */,
+				85442D3D293518390084D019 /* Auth */,
 				1B1042A9291EB91A00DC4676 /* Explore.swift */,
 				1B1042B1291EC46500DC4676 /* Communication.swift */,
-				85442D20292D41DD0084D019 /* SetupProfile.swift */,
-				85442D22292E08F10084D019 /* SetupPhoto.swift */,
-				85442D1E292CC69A0084D019 /* Signup.swift */,
 				1B1042AF291EB97400DC4676 /* Personal.swift */,
 				1B1042AB291EB93000DC4676 /* Map.swift */,
-				1B1FA6D62923F6CA00AFCBE2 /* Login.swift */,
 				1B14C68C293285FD00C150F2 /* ExploreSearch.swift */,
 				1B14C6902932A26A00C150F2 /* Notifications.swift */,
 				1B14C6922934F0A800C150F2 /* EventDetail.swift */,
@@ -222,6 +224,26 @@
 				1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		85442D3D293518390084D019 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				85442D1E292CC69A0084D019 /* Signup.swift */,
+				1B1FA6D62923F6CA00AFCBE2 /* Login.swift */,
+				85442D3E293518B80084D019 /* AuthenticationViewModel.swift */,
+				85442D4129353AA50084D019 /* AuthenticationView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		85442D4029353A6C0084D019 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				85442D20292D41DD0084D019 /* SetupProfile.swift */,
+				85442D22292E08F10084D019 /* SetupPhoto.swift */,
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +389,7 @@
 			files = (
 				1B3049DE292E7B3300FAE9B4 /* Tag.swift in Sources */,
 				1B104280291D01DA00DC4676 /* ContentView.swift in Sources */,
+				85442D3F293518B80084D019 /* AuthenticationViewModel.swift in Sources */,
 				1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */,
 				1B14C68D293285FD00C150F2 /* ExploreSearch.swift in Sources */,
 				1B1042B2291EC46500DC4676 /* Communication.swift in Sources */,
@@ -378,6 +401,7 @@
 				85442D21292D41DD0084D019 /* SetupProfile.swift in Sources */,
 				85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */,
 				85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */,
+				85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */,
 				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
 				1B14C6912932A26A00C150F2 /* Notifications.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* Event.swift in Sources */,
