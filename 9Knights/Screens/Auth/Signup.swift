@@ -10,12 +10,16 @@ import FirebaseAuth
 import Firebase
 
 struct Signup: View {
-    @State private var userName = ""
-    @State private var email = ""
-    @State private var password = ""
-    @State private var passwordCheck = ""
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @Environment(\.dismiss) var dismiss
     
+    private func signUpWithEmailPassword() {
+      Task {
+        if await viewModel.signUp() == true {
+          dismiss()
+        }
+      }
+    }
 
     var body: some View {
             ZStack {
@@ -31,7 +35,7 @@ struct Signup: View {
                 VStack{
                     Image("logoImage")
                     Image("logoWord")
-                    TextField("使用者名稱", text: $userName)
+                    TextField("使用者名稱", text: $viewModel.userName)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
                         .background(Color("Gray"))
@@ -40,7 +44,7 @@ struct Signup: View {
                                 .stroke(Color.black, lineWidth: 1)
                         )
                         .padding(.bottom,15)
-                    TextField("電子郵件", text: $email)
+                    TextField("電子郵件", text: $viewModel.email)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
                         .background(Color("Gray"))
@@ -49,7 +53,7 @@ struct Signup: View {
                                 .stroke(Color.black, lineWidth: 1)
                         )
                         .padding(.bottom,15)
-                    TextField("密碼", text: $password)
+                    SecureField("密碼", text: $viewModel.password)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
                         .background(Color("Gray"))
@@ -58,7 +62,7 @@ struct Signup: View {
                                 .stroke(Color.black, lineWidth: 1)
                         )
                         .padding(.bottom,15)
-                    TextField("確認密碼", text: $passwordCheck)
+                    SecureField("確認密碼", text: $viewModel.confirmPassword)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
                         .background(Color("Gray"))
@@ -67,25 +71,29 @@ struct Signup: View {
                                 .stroke(Color.black, lineWidth: 1)
                         )
                         .padding(.bottom,15)
-                    //Login Button
-                    Button {
-                    } label: {
-                        Spacer()
-                        Text("註冊")
-                            .foregroundColor(.white)
-                        Spacer()
+                    //Sign Up Button
+                    Button (action: signUpWithEmailPassword) {
+                        if viewModel.authenticationState != .Authenticating {
+                            HStack{
+                                Spacer()
+                                Text("註冊")
+                                    .foregroundColor(.white)
+                                Spacer()
+                            }
+                            .frame(width: 300, height: 50)
+                                .background(Color("BtnBlack"))
+                                .cornerRadius(20)
+                                .padding(.bottom, 1)
+                        } else {
+                            ProgressView()
+                        }
                     }
-                    .frame(width: 300, height: 50)
-                    .background(Color("BtnBlack"))
-                    .cornerRadius(20)
-                    .padding(.bottom, 1)
+                    
                     
                     HStack{
                         Text("已擁有帳號？")
                             .font(.system(size: 14))
-                        Button{
-                            self.presentationMode.wrappedValue.dismiss()
-                        } label: {
+                        Button(action: {viewModel.UserFlow()}){
                             Text("點此登入")
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)

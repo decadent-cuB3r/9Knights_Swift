@@ -18,10 +18,5 @@ struct Event: Codable, Identifiable {
     var host: String
     var startDate: Date
     var endDate: Date
-    
-}
 
-struct Post: Codable, Identifiable {
-    @DocumentID var id: String?
-    
 }

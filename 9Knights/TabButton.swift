@@ -20,8 +20,9 @@ struct Popup: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var showModal: Bool
     
-    var body: some View{
         
+    var body: some View{
+        NavigationStack{
             ZStack(alignment: .topLeading){
                 Color.white
                     .edgesIgnoringSafeArea(.all)
@@ -40,13 +41,10 @@ struct Popup: View {
                                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 20))
                         }
                     ).frame(width: 390, alignment: .trailing)
-
+                    
                     HStack{
                         
-                        Button(
-                            action: {
-                                
-                            }, label: {
+                        Button(action: {showModal.toggle()}){
                                 VStack(alignment: .leading){
                                     Text("創建旅程")
                                         .font(.system(size: 24,
@@ -58,9 +56,9 @@ struct Popup: View {
                                         .foregroundColor(Color("WordGray"))
                                 }
                                 Spacer()
-                            }).frame(maxWidth: .infinity)
+                            }.frame(maxWidth: .infinity)
                             .padding(EdgeInsets(top: 5, leading: 20, bottom: 10, trailing: 10))
-                            
+                        
                     }
                     Divider()
                     HStack{
@@ -80,14 +78,14 @@ struct Popup: View {
                                 }
                                 Spacer()
                             }).frame(maxWidth: .infinity)
-                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 10))
+                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 10))
                     }
                 }
                 
-            }.edgesIgnoringSafeArea(.all)
+            }
+        }.edgesIgnoringSafeArea(.all)
             .navigationBarBackButtonHidden(true)
-                .padding(.top,620)
-                
+            .padding(.top,620)
     }
 }
 
@@ -129,7 +127,7 @@ struct TabButton: View {
         "個人"
     ]
     
-    
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
     struct Triangle : Shape {
         
@@ -160,6 +158,7 @@ struct TabButton: View {
                         Communication()
                     default:
                         Personal()
+                            .environmentObject(viewModel)
                     }
                     
                 }

@@ -10,13 +10,19 @@ import Firebase
 import FirebaseAuth
 
 struct Login: View {
-    @State private var email = ""
-    @State private var password = ""
-    @State private var passwordCheck = false
-    @State private var path = NavigationPath()
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @Environment(\.dismiss) var dismiss
+    
+    private func signInWithEmailPassword() {
+      Task {
+        if await viewModel.signIn() == true {
+          dismiss()
+        }
+      }
+    }
 
     var body: some View {
-        NavigationStack(path: $path) {
+
             ZStack {
                 Circle()
                     .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color("Gray")]), startPoint: .leading, endPoint: .trailing))
@@ -30,7 +36,7 @@ struct Login: View {
                 VStack{
                     Image("logoImage")
                     Image("logoWord")
-                    TextField("電子信箱", text: $email)
+                    TextField("電子信箱", text: $viewModel.email)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
                         .background(Color("Gray"))
@@ -40,7 +46,7 @@ struct Login: View {
                                 
                         )
                         .padding(.bottom,15)
-                    TextField("密碼", text: $password)
+                    TextField("密碼", text: $viewModel.password)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: 300, height: 50)
                         .background(Color("Gray"))
@@ -50,11 +56,11 @@ struct Login: View {
                         )
                     HStack{
                         Button{
-                            passwordCheck.toggle()
+                            viewModel.stayLoggedIn.toggle()
                             
                         } label: {
                             HStack{
-                                Image(systemName: passwordCheck ? "checkmark.square": "square")
+                                Image(systemName: viewModel.stayLoggedIn ? "checkmark.square": "square")
                                     .padding(.trailing, -5)
                                 Text("保持登入")
                                     .font(.system(size: 14))
@@ -74,18 +80,22 @@ struct Login: View {
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
                     
                     //Login Button
-                    Button {
-                        path.append("SetupProfile")
-                    } label: {
-                        Spacer()
-                        Text("登入")
-                            .foregroundColor(.white)
-                        Spacer()
+                    Button (action: signInWithEmailPassword) {
+                        if viewModel.authenticationState != .Authenticating{
+                            HStack {
+                                Spacer()
+                                Text("登入")
+                                    .foregroundColor(.white)
+                                Spacer()
+                            }
+                            .frame(width: 300, height: 50)
+                            .background(Color("BtnBlack"))
+                            .cornerRadius(20)
+                            .padding(.bottom, 20)
+                        } else {
+                            ProgressView()
+                        }
                     }
-                    .frame(width: 300, height: 50)
-                    .background(Color("BtnBlack"))
-                    .cornerRadius(20)
-                    .padding(.bottom, 20)
                     
                     Text("或")
                         .font(.system(size: 14))
@@ -108,34 +118,18 @@ struct Login: View {
                     HStack{
                         Text("還沒有帳號？")
                             .font(.system(size: 14))
-                        NavigationLink(destination: Login()) {
-                            Button{
-                                path.append("Signup")
-                            } label: {
-                                Text("點此註冊新帳號")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.black)
-                                    .underline()
-                            }.navigationDestination(for: String.self) { view in
-                                switch view {
-                                case "SetupProfile":
-                                    SetupProfile(path:$path)
-                                case "SetupPhoto":
-                                    SetupPhoto(path:$path)
-                                case "TabButton":
-                                    TabButton()
-                                case "Signup":
-                                    Signup()
-                                default:
-                                    Text("Unknown")
-                                }
-                            }
+                        Button(action: {viewModel.UserFlow()}){
+                            Text("點此註冊新帳號")
+                                .font(.system(size: 14))
+                                .foregroundColor(.black)
+                                .underline()
                         }
                     }
+                               
                 }
             }.ignoresSafeArea().fixedSize()
         }
-    }
+    
     
 }
 

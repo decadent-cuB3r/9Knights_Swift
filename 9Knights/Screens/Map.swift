@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct Map: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                
+            
             }
             .navigationBarTitle("")
             .navigationBarItems(leading:

@@ -13,10 +13,12 @@ struct ContentView: View {
 //    @State var isLogin = false
 
     var body: some View {
-        if viewModel.isLogin {
+        if viewModel.authenticationState == .Authenticated {
             TabButton()
+                .environmentObject(viewModel)
         } else {
-            Login()
+            AuthenticationView()
+                .environmentObject(viewModel)
         }
     }
 }

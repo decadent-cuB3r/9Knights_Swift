@@ -39,6 +39,12 @@
 		85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D22292E08F10084D019 /* SetupPhoto.swift */; };
 		85442D3F293518B80084D019 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D3E293518B80084D019 /* AuthenticationViewModel.swift */; };
 		85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D4129353AA50084D019 /* AuthenticationView.swift */; };
+		858281D329D0190A00560916 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D229D0190A00560916 /* Setting.swift */; };
+		858281D729D34B4800560916 /* EventTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D629D34B4800560916 /* EventTileView.swift */; };
+		858281D929D48EF900560916 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D829D48EF900560916 /* UserInfo.swift */; };
+		858281DC29DB3C8A00560916 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281DB29DB3C8A00560916 /* UserInfoViewModel.swift */; };
+		858281DE29DBEC4500560916 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281DD29DBEC4500560916 /* EventViewModel.swift */; };
+		858281E329E3350900560916 /* CreateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281E229E3350900560916 /* CreateEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +97,12 @@
 		85442D22292E08F10084D019 /* SetupPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPhoto.swift; sourceTree = "<group>"; };
 		85442D3E293518B80084D019 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		85442D4129353AA50084D019 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		858281D229D0190A00560916 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		858281D629D34B4800560916 /* EventTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTileView.swift; sourceTree = "<group>"; };
+		858281D829D48EF900560916 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		858281DB29DB3C8A00560916 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		858281DD29DBEC4500560916 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		858281E229E3350900560916 /* CreateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				1B3049C82926818000FAE9B4 /* Preview Content */,
+				858281DA29D497EE00560916 /* ViewModel */,
+				1B3049D429288A6100FAE9B4 /* Models */,
 				1B3049DC292A9C9500FAE9B4 /* Components */,
 				1B1042B3292331B700DC4676 /* Screens */,
 				1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */,
@@ -158,7 +172,6 @@
 				1B104281291D01DB00DC4676 /* Assets.xcassets */,
 				1B104283291D01DB00DC4676 /* _Knights.entitlements */,
 				1B3049D92929306500FAE9B4 /* GoogleService-Info.plist */,
-				1B3049D429288A6100FAE9B4 /* Models */,
 			);
 			path = 9Knights;
 			sourceTree = "<group>";
@@ -183,16 +196,14 @@
 		1B1042B3292331B700DC4676 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				858281D529D34B2500560916 /* Explore */,
 				85442D4029353A6C0084D019 /* Setup */,
 				85442D3D293518390084D019 /* Auth */,
-				1B1042A9291EB91A00DC4676 /* Explore.swift */,
-				1B1042B1291EC46500DC4676 /* Communication.swift */,
-				1B1042AF291EB97400DC4676 /* Personal.swift */,
+				858281D429D0191000560916 /* Personal */,
+				858281E129E334DD00560916 /* CreateEvent */,
+				858281E429E3352500560916 /* Communication */,
 				1B1042AB291EB93000DC4676 /* Map.swift */,
-				1B14C68C293285FD00C150F2 /* ExploreSearch.swift */,
 				1B14C6902932A26A00C150F2 /* Notifications.swift */,
-				1B14C6922934F0A800C150F2 /* EventDetail.swift */,
-				1BD9C61E29356C5700D9833E /* CommunicationSearch.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -217,6 +228,7 @@
 			children = (
 				1B3049D529288A6F00FAE9B4 /* Event.swift */,
 				1B3049DD292E7B3300FAE9B4 /* Tag.swift */,
+				858281D829D48EF900560916 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */,
+				858281D629D34B4800560916 /* EventTileView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,7 +247,6 @@
 			children = (
 				85442D1E292CC69A0084D019 /* Signup.swift */,
 				1B1FA6D62923F6CA00AFCBE2 /* Login.swift */,
-				85442D3E293518B80084D019 /* AuthenticationViewModel.swift */,
 				85442D4129353AA50084D019 /* AuthenticationView.swift */,
 			);
 			path = Auth;
@@ -247,6 +259,52 @@
 				85442D22292E08F10084D019 /* SetupPhoto.swift */,
 			);
 			path = Setup;
+			sourceTree = "<group>";
+		};
+		858281D429D0191000560916 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				1B1042AF291EB97400DC4676 /* Personal.swift */,
+				858281D229D0190A00560916 /* Setting.swift */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		858281D529D34B2500560916 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				1B14C68C293285FD00C150F2 /* ExploreSearch.swift */,
+				1B1042A9291EB91A00DC4676 /* Explore.swift */,
+				1B14C6922934F0A800C150F2 /* EventDetail.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		858281DA29D497EE00560916 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				85442D3E293518B80084D019 /* AuthenticationViewModel.swift */,
+				858281DB29DB3C8A00560916 /* UserInfoViewModel.swift */,
+				858281DD29DBEC4500560916 /* EventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		858281E129E334DD00560916 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				858281E229E3350900560916 /* CreateEvent.swift */,
+			);
+			path = CreateEvent;
+			sourceTree = "<group>";
+		};
+		858281E429E3352500560916 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				1BD9C61E29356C5700D9833E /* CommunicationSearch.swift */,
+				1B1042B1291EC46500DC4676 /* Communication.swift */,
+			);
+			path = Communication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,11 +453,15 @@
 				85442D3F293518B80084D019 /* AuthenticationViewModel.swift in Sources */,
 				1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */,
 				1B14C68D293285FD00C150F2 /* ExploreSearch.swift in Sources */,
+				858281D729D34B4800560916 /* EventTileView.swift in Sources */,
 				1B1042B2291EC46500DC4676 /* Communication.swift in Sources */,
+				858281D329D0190A00560916 /* Setting.swift in Sources */,
+				858281E329E3350900560916 /* CreateEvent.swift in Sources */,
 				1B14C6932934F0A800C150F2 /* EventDetail.swift in Sources */,
 				1B1042B0291EB97400DC4676 /* Personal.swift in Sources */,
 				1B1042AC291EB93000DC4676 /* Map.swift in Sources */,
 				1B1042AA291EB91A00DC4676 /* Explore.swift in Sources */,
+				858281DC29DB3C8A00560916 /* UserInfoViewModel.swift in Sources */,
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
 				1BD9C61F29356C5700D9833E /* CommunicationSearch.swift in Sources */,
 				85442D21292D41DD0084D019 /* SetupProfile.swift in Sources */,
@@ -408,7 +470,9 @@
 				85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */,
 				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
 				1B14C6912932A26A00C150F2 /* Notifications.swift in Sources */,
+				858281D929D48EF900560916 /* UserInfo.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* Event.swift in Sources */,
+				858281DE29DBEC4500560916 /* EventViewModel.swift in Sources */,
 				1B1FA6D72923F6CA00AFCBE2 /* Login.swift in Sources */,
 				1B14C68B292FFCB100C150F2 /* SegmentedControl.swift in Sources */,
 			);
