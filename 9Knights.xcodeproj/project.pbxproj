@@ -44,7 +44,9 @@
 		858281D929D48EF900560916 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D829D48EF900560916 /* UserInfo.swift */; };
 		858281DC29DB3C8A00560916 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281DB29DB3C8A00560916 /* UserInfoViewModel.swift */; };
 		858281DE29DBEC4500560916 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281DD29DBEC4500560916 /* EventViewModel.swift */; };
-		858281E329E3350900560916 /* CreateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281E229E3350900560916 /* CreateEvent.swift */; };
+		858281E329E3350900560916 /* EventImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281E229E3350900560916 /* EventImage.swift */; };
+		858281E629E48FD300560916 /* StandardBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281E529E48FD300560916 /* StandardBackButton.swift */; };
+		858281E829E49DD500560916 /* StandardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281E729E49DD400560916 /* StandardHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +104,9 @@
 		858281D829D48EF900560916 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		858281DB29DB3C8A00560916 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		858281DD29DBEC4500560916 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
-		858281E229E3350900560916 /* CreateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent.swift; sourceTree = "<group>"; };
+		858281E229E3350900560916 /* EventImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImage.swift; sourceTree = "<group>"; };
+		858281E529E48FD300560916 /* StandardBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardBackButton.swift; sourceTree = "<group>"; };
+		858281E729E49DD400560916 /* StandardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,8 @@
 			children = (
 				1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */,
 				858281D629D34B4800560916 /* EventTileView.swift */,
+				858281E529E48FD300560916 /* StandardBackButton.swift */,
+				858281E729E49DD400560916 /* StandardHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -293,7 +299,7 @@
 		858281E129E334DD00560916 /* CreateEvent */ = {
 			isa = PBXGroup;
 			children = (
-				858281E229E3350900560916 /* CreateEvent.swift */,
+				858281E229E3350900560916 /* EventImage.swift */,
 			);
 			path = CreateEvent;
 			sourceTree = "<group>";
@@ -456,11 +462,13 @@
 				858281D729D34B4800560916 /* EventTileView.swift in Sources */,
 				1B1042B2291EC46500DC4676 /* Communication.swift in Sources */,
 				858281D329D0190A00560916 /* Setting.swift in Sources */,
-				858281E329E3350900560916 /* CreateEvent.swift in Sources */,
+				858281E329E3350900560916 /* EventImage.swift in Sources */,
+				858281E629E48FD300560916 /* StandardBackButton.swift in Sources */,
 				1B14C6932934F0A800C150F2 /* EventDetail.swift in Sources */,
 				1B1042B0291EB97400DC4676 /* Personal.swift in Sources */,
 				1B1042AC291EB93000DC4676 /* Map.swift in Sources */,
 				1B1042AA291EB91A00DC4676 /* Explore.swift in Sources */,
+				858281E829E49DD500560916 /* StandardHeader.swift in Sources */,
 				858281DC29DB3C8A00560916 /* UserInfoViewModel.swift in Sources */,
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
 				1BD9C61F29356C5700D9833E /* CommunicationSearch.swift in Sources */,
