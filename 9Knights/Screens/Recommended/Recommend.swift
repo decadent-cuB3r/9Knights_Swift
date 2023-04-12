@@ -12,7 +12,16 @@ struct RecommendRoot: View {
     var body: some View {
         NavigationStack{
             ScrollView(.horizontal){
-                
+                //UpcomingEvent tile
+                NavigationLink(destination: RideView()){
+                    VStack{
+                        StandardHeader(text: "北宜公路一日遊")
+                        Text("5月31日, 週二 8:00  - 5月31日, 週二 15:00 ")
+                        HStack{
+                            
+                        }
+                    }
+                }
             }
             .navigationBarTitle("")
             .navigationBarItems(leading:

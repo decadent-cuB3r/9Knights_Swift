@@ -20,12 +20,18 @@ struct Popup: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var showModal: Bool
     @Binding var showCreateEvent: Bool
-    @State var showCreatePost = false
-    func EnterCreateEvent() {
+    @Binding var showCreatePost: Bool
+    
+    func onClickCreateEvent() {
         showModal.toggle()
         showCreateEvent.toggle()
         print(showCreateEvent)
         print(showModal)
+    }
+    
+    func onClickCreatePost() {
+        showModal.toggle()
+        showCreatePost.toggle()
     }
     
     var body: some View{
@@ -52,7 +58,7 @@ struct Popup: View {
                 
                 HStack{
                     
-                    Button(action: {EnterCreateEvent()}){
+                    Button(action: {onClickCreateEvent()}){
                         VStack(alignment: .leading){
                             Text("創建旅程")
                                 .font(.system(size: 24,
@@ -72,7 +78,7 @@ struct Popup: View {
                 HStack{
                     Button(
                         action: {
-                            
+                            onClickCreatePost()
                         }, label: {
                             VStack(alignment: .leading){
                                 Text("發布貼文")
@@ -118,6 +124,7 @@ struct TabButton: View {
 
     @State private var showModal = false
     @State private var showCreateEvent = false
+    @State private var showCreatePost = false
     
 
     
@@ -248,11 +255,12 @@ struct TabButton: View {
                         PopBackground( showModal: $showModal )
                             .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
                     }
-                    Popup(showModal: $showModal, showCreateEvent: $showCreateEvent)
+                    Popup(showModal: $showModal, showCreateEvent: $showCreateEvent, showCreatePost: $showCreatePost)
                         .offset(y: showModal ? 0 : UIScreen.main.bounds.height)
                         .animation(.spring(response: 0.5, dampingFraction: 1, blendDuration: 0.5), value: showModal)
                     
-                }.fullScreenCover(isPresented: $showCreateEvent){      EventImage()}
+                }.fullScreenCover(isPresented: $showCreateEvent){ EventImage() }
+                    .fullScreenCover(isPresented: $showCreatePost, content: {EventImage()})
             }.edgesIgnoringSafeArea(.all)
         }
     }

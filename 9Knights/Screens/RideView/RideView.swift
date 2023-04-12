@@ -10,11 +10,38 @@ import MapKit
 
 struct RideView: View {
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.025237122289447, longitude: 121.54045285890733), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+    @StateObject private var viewModel = UserLocationViewModel()
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true)
-            .ignoresSafeArea()
+        NavigationStack{
+            ZStack{
+                Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
+                    .ignoresSafeArea()
+                    .onAppear{
+                        viewModel.checkIfLocationServicesIsEnabled()
+                    }
+                VStack{
+                    HStack{
+                        Button(action: {dismiss()} ){
+                            Image(systemName: "escape")
+                        }
+                        NavigationLink(destination: Setting()){
+                            ZStack{
+                                Circle()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(Color("Gray"))
+                                    .opacity(0.5)
+                                Image(systemName: "gearshape.fill")
+                                    .font(Font.system(size: 20, weight: .semibold))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
