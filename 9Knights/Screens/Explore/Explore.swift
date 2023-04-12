@@ -82,8 +82,8 @@ struct Explore: View {
                 }label: {
                     HStack{
                         Image(systemName: "arrowtriangle.down.fill")
-                            .font(.system(size: 16))
-                        Text("依活動日期排序")
+                            .font(.system(size: 14))
+                        Text("依活動日期排序(最近)")
                         Spacer()
                     }
                     .foregroundColor(Color("WordGray"))
@@ -100,7 +100,7 @@ struct Explore: View {
             .navigationBarTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
-                                Text("探索旅程").font(.system(size: 32)).bold().padding(.top,-8)
+                                Text("探索").font(.system(size: 32)).bold().padding(.top,-8)
                                 , trailing:
                                     HStack{
                                         Button{

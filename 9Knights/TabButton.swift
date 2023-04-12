@@ -131,7 +131,7 @@ struct TabButton: View {
     
     let tabWords = [
         "探索",
-        "地圖",
+        "旅程",
         "",
         "交流",
         "個人"

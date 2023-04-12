@@ -40,9 +40,9 @@ struct EventTileView: View {
                             ZStack{
                                 Capsule()
                                     .stroke(Color("ItemStroke"), lineWidth: 2)
-                                    .background( Color("CreamyWhite"))
-                                    .cornerRadius(20)
-                                    .frame(width: 50, height: 16)
+                                    .background( Color("Gray"))
+                                    .cornerRadius(2)
+                                    .frame(width: 40, height: 16)
                                 Text(tags)
                                     .foregroundColor(Color(.black))
                                     .bold()

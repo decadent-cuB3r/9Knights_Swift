@@ -112,7 +112,7 @@ struct Login: View {
                         Spacer()
                     }
                     .frame(width: 300, height: 50)
-                    .background(Color("BtnFb"))
+                    .background(Color("Btnfb"))
                     .cornerRadius(20)
                     .padding(1)
                     HStack{
