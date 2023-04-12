@@ -115,7 +115,7 @@ struct Explore: View {
                                                     .foregroundColor(Color("BtnGray"))
                                             }
                                         }.fullScreenCover(isPresented: $isPresented, content: ExploreSearch.init)
-                                        NavigationLink(destination: Notifications()){
+                                        NavigationLink(destination: RideView()){
                                             Button{
                                                 
                                             } label: {

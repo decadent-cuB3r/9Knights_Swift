@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseCore
 
 enum AuthenticationState {
     case Authenticated
@@ -33,6 +35,7 @@ enum AuthenticationFlow {
     @Published var errorMessage = ""
     @Published var isLogin: Bool = false
     let auth = Auth.auth()
+    let db = Firestore.firestore()
     init() {
         registerAuthStateHandler()
     }
@@ -57,7 +60,7 @@ enum AuthenticationFlow {
     func signIn() async -> Bool {
         authenticationState = .Authenticating
         do {
-          try await Auth.auth().signIn(withEmail: email, password: password)
+            try await Auth.auth().signIn(withEmail: email, password: password)
             return true
         }
         catch  {

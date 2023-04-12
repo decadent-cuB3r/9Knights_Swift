@@ -22,4 +22,5 @@ struct UserInfo: Codable, Identifiable {
     var bikeModel: String
     var followersID: [String]
     var followingID: [String]
+    var firstLogin: Bool = true
 }

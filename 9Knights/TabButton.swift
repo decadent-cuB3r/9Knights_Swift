@@ -163,7 +163,7 @@ struct TabButton: View {
                 case 0 :
                     Explore()
                 case 1 :
-                    Map()
+                    RecommendRoot()
                 case 3 :
                     Communication()
                 default:

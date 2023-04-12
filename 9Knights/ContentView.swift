@@ -10,7 +10,6 @@ import UIKit
 
 struct ContentView: View {
     @StateObject var viewModel = AuthenticationViewModel()
-//    @State var isLogin = false
 
     var body: some View {
         if viewModel.authenticationState == .Authenticated {

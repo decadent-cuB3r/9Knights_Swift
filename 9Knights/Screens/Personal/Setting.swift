@@ -14,9 +14,17 @@ struct Setting: View {
         viewModel.signOut()
     }
     var body: some View {
-        Button(action: signOut) {
-            Text("登出")
-        }
+        NavigationStack{
+            VStack{
+                HStack{
+                    StandardBackButton()
+                    StandardHeader(text: "設定")
+                }
+                Button(action: signOut) {
+                    Text("登出")
+                }
+            }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
