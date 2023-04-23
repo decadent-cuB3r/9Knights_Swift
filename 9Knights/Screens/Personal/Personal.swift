@@ -49,7 +49,6 @@ struct Personal: View {
     
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
-
     var body: some View {
         NavigationStack{
             ZStack{
@@ -204,8 +203,8 @@ struct Personal: View {
     }
 }
 
-//struct Personal_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Personal()
-//    }
-//}
+struct Personal_Previews: PreviewProvider {
+    static var previews: some View {
+        Personal().environmentObject(AuthenticationViewModel())
+    }
+}
