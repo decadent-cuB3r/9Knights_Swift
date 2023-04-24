@@ -34,6 +34,27 @@ extension View {
     }
 }
 
+struct ProgressBar: View {
+    var progress: Double = 150
+    var total: Double = 300
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            ProgressView(value: progress, total: total)
+            .frame(width: 238,height: 8.0)
+            .accentColor(Color("Red"))
+            .scaleEffect(x: 1, y:2, anchor: .center)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            HStack(spacing: 2){
+                Text("\(Int(progress))/\(Int(total))").font(.system(size: 12))
+                Image(systemName: "star.fill")
+                    .foregroundColor(Color("Red"))
+                    .font(.system(size: 10))
+            }
+        }
+    }
+}
+
 struct Personal: View {
    
     struct RoundedCorner: Shape {
@@ -52,9 +73,7 @@ struct Personal: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                
                 VStack{
-                    
                     ZStack(alignment: .topTrailing){
                         Rectangle()
                             .foregroundColor(Color("ItemShadow"))
@@ -80,28 +99,41 @@ struct Personal: View {
                             }.padding()
                         }
                     }
-                    HStack{
+                    HStack(spacing: 15){
                         Image("knightPhoto")
-                            .frame(width: 90, height: 90)
+                            .resizable()
+                            .frame(width: 76, height: 76)
                             .clipShape(Circle())
                             .padding(.top, 25)
-                        VStack{
-                            HStack(alignment: .center){
+                        VStack(alignment:.leading){
+                            HStack(alignment: .bottom){
                                 Text("陳辰")
                                     .font(.system(size: 24, weight: .bold))
                                 Spacer()
+                                Text("24")
+                                    .font(.system(size: 16, weight: .bold))
                                 Text("台北")
                                     .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(Color("WordGray"))
                             }.padding(.bottom, 1)
-                            HStack(alignment: .center){
-                                Text("FZ6")
-                                    .font(.system(size: 16, weight: .bold))
+                            HStack{
+                                HStack{
+                                    Text("12")
+                                        .font(.system(size: 14, weight: .bold))
+                                    Text("粉絲")
+                                        .font(.system(size: 14, weight: .bold))
+                                }
                                 Spacer()
-                                Text("車主")
-                                    .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(Color("WordGray"))
-                            }
+                                Divider()
+                                    .frame(width: 1,height: 25)
+                                    .overlay(Color("ItemShadow"))
+                                Spacer()
+                                HStack{
+                                    Text("1")
+                                        .font(.system(size: 14, weight: .bold))
+                                    Text("追蹤中")
+                                        .font(.system(size: 14, weight: .bold))
+                                }
+                            }.frame(width:140, height: 40)
                         }
                         .frame(width: 120)
                         .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 0))
@@ -113,87 +145,69 @@ struct Personal: View {
                                 .foregroundColor(Color("Red"))
                                 .padding()
                         } .padding(.top, 30)
-                        
                     }.padding(.top, -15)
+                    HStack(spacing: 30){
+                        NavigationLink(destination: MyPost()){
+                            VStack(spacing: 5){
+                                Text("發布貼文").bold().font(.system(size: 12))
+                                Text("0").bold().font(.system(size: 24))
+                            }.frame(width: 80, height: 70)
+                            .background(Color("Gray"))
+                            .cornerRadius(10)
+                            .foregroundColor(.black)
+                        }
+                        NavigationLink(destination: AttendEvent()){
+                            VStack(spacing: 5){
+                                Text("參與旅程").bold().font(.system(size: 12))
+                                Text("0").bold().font(.system(size: 24))
+                            }.frame(width: 80, height: 70)
+                            .background(Color("Gray"))
+                            .cornerRadius(10)
+                            .foregroundColor(.black)
+                        }
+                        NavigationLink(destination: FriendReview()){
+                            VStack(spacing: 5){
+                                Text("車友評價").bold().font(.system(size: 12))
+                                Text("0").bold().font(.system(size: 24))
+                            }.frame(width: 80, height: 70)
+                            .background(Color("Gray"))
+                            .cornerRadius(10)
+                            .foregroundColor(.black)
+                        }
+                    }.padding(.vertical)
                     HStack{
-                        Spacer()
-                        HStack{
-                            Text("12")
-                                .font(.system(size: 16, weight: .bold))
-                            Text("粉絲")
-                                .font(.system(size: 16, weight: .bold))
+                        Image("Bronze").padding()
+                        VStack(alignment: .leading){
+                            Text("Lv.1 見習騎士").bold().font(.system(size: 16))
+                            ProgressBar()
+                            HStack{
+                                Spacer()
+                                NavigationLink(destination: LevelRules()){
+                                    VStack(spacing: 5){
+                                        Text("查看等級與規則")
+                                            .bold().font(.system(size: 10))
+                                            .foregroundColor(Color("WordGray"))
+                                    }.frame(width: 87, height: 23)
+                                    .background(Color("Gray"))
+                                    .cornerRadius(5)
+                                    .padding(.horizontal)
+                                    .padding(.vertical,-10)
+                                }
+                            }
                         }
-                        Spacer()
-                        Divider()
-                            .frame(width: 2)
-                            .overlay(Color("ItemShadow"))
-                        Spacer()
-                        HStack{
-                            Text("1")
-                                .font(.system(size: 16, weight: .bold))
-                            Text("追蹤中")
-                                .font(.system(size: 16, weight: .bold))
-                        }
-                        Spacer()
-                    }.frame(height: 40)
-                    VStack{
-                        Text("大家好!我叫陳辰，我熱愛騎機車。歡迎與我做朋友~")
-                            .font(.system(size: 16))
-                            .padding()
+                    }.frame(width: 346, height: 120)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color("ItemStroke"), lineWidth: 1))
+                    VStack(alignment: .leading, spacing: 10){
+                        Text("個人簡介").font(.system(size: 16)).bold()
+                        Text("大家好!我叫陳辰，我熱愛騎機車。歡迎與我做朋友~\n快來加我好友八托尼><")
+                            .font(.system(size: 14))
+                            .lineSpacing(5)
+                            .foregroundColor(Color("WordGray"))
                     }
-                    .frame(width: 346, height: 83)
-                    .background(Color("Gray"))
-                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
-                    .cornerRadius(20)
-                    .padding()
-                    VStack{
-                        Divider()
-                        Button{
-                            //Button func
-                        }label: {
-                            HStack{
-                                Text("我的貼文")
-                                    .foregroundColor(Color.black)
-                                    .bold()
-                                Spacer()
-                                Image(systemName: "arrowtriangle.forward.fill")
-                                    .foregroundColor(Color("Red"))
-                            }
-                        }
-                        .padding(.horizontal, 30)
-                        .padding(.vertical,10)
-                        Divider()
-                        Button{
-                            //Button func
-                        }label: {
-                            HStack{
-                                Text("曾參與的旅程")
-                                    .foregroundColor(Color.black)
-                                    .bold()
-                                Spacer()
-                                Image(systemName: "arrowtriangle.forward.fill")
-                                    .foregroundColor(Color("Red"))
-                            }
-                        }
-                        .padding(.horizontal, 30)
-                        .padding(.vertical,10)
-                        Divider()
-                        Button{
-                            
-                        }label: {
-                            HStack{
-                                Text("我創建的旅程")
-                                    .foregroundColor(Color.black)
-                                    .bold()
-                                Spacer()
-                                Image(systemName: "arrowtriangle.forward.fill")
-                                    .foregroundColor(Color("Red"))
-                            }
-                        }
-                        .padding(.horizontal, 30)
-                        .padding(.vertical,10)
-                        Divider()
-                    }
+                    .frame(width: 346)
+                    .padding(.vertical,10)
                     Spacer()
                 }
                 

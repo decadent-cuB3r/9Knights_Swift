@@ -41,7 +41,7 @@ struct RecommendNavigationBar: View {
                 Text("旅程").font(.system(size: 32)).bold()
                 Spacer()
                 HStack{
-                    NavigationLink(destination: ExploreSearch()){
+                    NavigationLink(destination: RecommendedChat()){
                     label: do {
                             ZStack{
                                 Circle()
