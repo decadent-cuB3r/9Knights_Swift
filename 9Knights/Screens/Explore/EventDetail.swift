@@ -6,19 +6,38 @@
 //
 
 import SwiftUI
+import CoreLocation
 
+import MapKit
 
+struct MapView: UIViewRepresentable {
+    let coordinate: CLLocationCoordinate2D
+
+    func makeUIView(context: Context) -> MKMapView {
+        MKMapView(frame: .zero)
+    }
+
+    func updateUIView(_ view: MKMapView, context: Context) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        view.addAnnotation(annotation)
+        view.setRegion(region, animated: true)
+    }
+}
 
 struct EventDetail: View {
     
-    
-    var event: Event
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var isExpanded = false
+    @State var select: Int = 0
+         var items = ["Day 1"]
+    var event: Event
 
     var body: some View {
         NavigationStack{
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 VStack{
                     ZStack{
                         ZStack(alignment: .top){
@@ -45,6 +64,7 @@ struct EventDetail: View {
                                         self.presentationMode.wrappedValue.dismiss()
                                     }label: {
                                         ZStack{
+                                            
                                             Circle()
                                                 .frame(width: 40, height: 40)
                                                 .foregroundColor(Color("Gray"))
@@ -96,11 +116,11 @@ struct EventDetail: View {
                     HStack{
                         ForEach(event.tags, id: \.self){ tags in
                             ZStack{
-                                Capsule()
+                                Rectangle()
                                     .stroke(Color("ItemStroke"), lineWidth: 2)
-                                    .background( Color("CreamyWhite"))
-                                    .cornerRadius(20)
-                                    .frame(width: 80, height: 30)
+                                    .background( Color("Gray"))
+                                    .cornerRadius(2)
+                                    .frame(width: 82, height: 26)
                                 Text(tags)
                                     .foregroundColor(Color(.black))
                                     .bold()
@@ -110,23 +130,22 @@ struct EventDetail: View {
                     }.padding()
                     //Event Name
                     HStack{
-                        VStack(alignment: .leading){
+                        VStack(alignment: .leading,spacing: 2){
                             Text(event.eventName)
                                 .foregroundColor(.black)
                                 .font(.system(size: 24, weight: .bold))
-                                .padding(.bottom,0.1)
-                            Spacer()
+
                             //Event Date
                             Text("\(event.startDate.formatted(.dateTime.month().day()))")
                                 .foregroundColor(Color("WordGray"))
-                                .font(.system(size: 14, weight: .bold))
-                                .padding(.bottom, 0.1)
-                            
+                                .font(.system(size: 14))
+                            Text("旅程上限人數  5人")
+                                .foregroundColor(Color("WordGray"))
+                                .font(.system(size: 14, weight: .regular))
                             //Event Host 待翻譯中文
                             Text("由 \(event.host) 創建")
                                 .foregroundColor(Color("WordGray"))
                                 .font(.system(size: 14, weight: .regular))
-                            
                         }
                         Spacer()
                     }.padding(.leading,20)
@@ -162,9 +181,7 @@ struct EventDetail: View {
                                     
                                 }.padding(.trailing)
                             }
-                            
                         }
-                        
                     }.padding()
                     if event.startDate == Date.now {
                         Button{
@@ -185,28 +202,68 @@ struct EventDetail: View {
                         }label: {
                             Spacer()
                             Text("報名參加")
-                                .foregroundColor(.white)
+                                .foregroundColor(.white).bold()
                             Spacer()
                         }
                         .frame(width: 360, height: 45)
                         .background(Color("Red"))
                         .cornerRadius(20)
-                        .padding(1)
+                        .padding(5)
 
                     }
+                    VStack(alignment:.leading){
+                        Text("介紹").font(.system(size: 18, weight: .bold))
+                            .padding(1)
+                        Text("歡迎喜歡一起騎車跑山的北部朋友參加我們的活動!\n多多邀請你的朋友來玩吧!\n也歡迎新手加入哦我們人都很好的~\n不管你騎什麼車都可以跟喔哈哈哈")
+                            .font(.system(size: 16))
+                            .foregroundColor(Color("WordGray"))
+                            .lineSpacing(5)
+                            .lineLimit(isExpanded ? nil : 3)
+    
+                    }
                     HStack{
-                        VStack(alignment: .leading){
-                            Text("介紹").font(.system(size: 18, weight: .bold))
-                                .padding(.bottom,1)
-                            Text("歡迎喜歡一起騎車跑山的北部朋友參加我們的活動!本活動不限人數自由參加!也歡迎新手加入哦我們人都很好的~")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color("WordGray"))
-                            
-                        }
                         Spacer()
-                    }.padding()
-                    
+                        Button(action: { isExpanded.toggle() }) {
+                                        Text(isExpanded ? "收起" : "查看更多")
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color("WordGray"))
+                                            .bold()
+                        }.buttonStyle(StaticButtonStyle())
+                    }.padding(.trailing)
                 }
+                MapView(coordinate: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194))
+                    .frame(width: 355, height: 200)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                VStack{
+                    SegmentedControl(items: items, selection: $select)
+                    Text("出發時間：").bold().padding()
+                    Divider()
+                    HStack{
+                        ZStack{
+                            Image("Point")
+                            Text("1").foregroundColor(Color("Red")).font(.system(size: 10).bold()).padding(.bottom,8)
+                        }.padding()
+                        VStack(alignment: .leading, spacing: 4){
+                            Text("全家新店長春店").font(.system(size: 16).bold())
+                            Text("231新北市新店區北宜路二段149號").font(.system(size: 14))
+                            Text("距離下一地點騎車時間約30分").font(.system(size: 14)).foregroundColor(Color("WordGray"))
+                        }
+                        Button{
+                            
+                        }label: {
+                            ZStack{
+                                Image(systemName: "location.circle.fill")
+                                    .font(Font.system(size: 28, weight: .bold))
+                                    .foregroundColor(.black)
+                            }
+                        }.padding()
+                    }.padding()
+                    Divider()
+                }.padding(.vertical)
                 
             }.navigationBarBackButtonHidden(true)
         }.navigationBarBackButtonHidden(true)

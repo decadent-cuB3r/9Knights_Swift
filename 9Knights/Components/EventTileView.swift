@@ -19,7 +19,7 @@ struct EventTileView: View {
                 Rectangle()
                     .foregroundColor(Color("ItemShadow"))
                     .cornerRadius(10)
-                    .frame(width: 175, height: 208)
+                    .frame(width: 170, height: 208)
                     .offset(y:4)
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(Color("ItemStroke"), lineWidth: 1)
@@ -38,7 +38,7 @@ struct EventTileView: View {
                     HStack{
                         ForEach(event.tags, id: \.self){ tags in
                             ZStack{
-                                Capsule()
+                                Rectangle()
                                     .stroke(Color("ItemStroke"), lineWidth: 2)
                                     .background( Color("Gray"))
                                     .cornerRadius(2)

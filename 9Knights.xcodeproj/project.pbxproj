@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8529F680EB00F892E1 /* RecommendedChat.swift */; };
+		15A13F8829F69BAC00F892E1 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8729F69BAC00F892E1 /* MyPost.swift */; };
+		15A13F8A29F6A3AF00F892E1 /* AttendEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8929F6A3AF00F892E1 /* AttendEvent.swift */; };
+		15A13F8C29F6CE1E00F892E1 /* FriendReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8B29F6CE1E00F892E1 /* FriendReview.swift */; };
+		15A13F8E29F6E62100F892E1 /* AttendEventTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8D29F6E62100F892E1 /* AttendEventTileView.swift */; };
+		15A13F9029F6ED7B00F892E1 /* LevelRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8F29F6ED7B00F892E1 /* LevelRules.swift */; };
+		15A13F9229F6F08D00F892E1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F9129F6F08D00F892E1 /* CustomNavigationBar.swift */; };
+		15A13F9429F6FF5400F892E1 /* TwoTabSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F9329F6FF5400F892E1 /* TwoTabSegmentedControl.swift */; };
+		15B2098F29EE978200417973 /* ExploreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2098E29EE978200417973 /* ExploreNotification.swift */; };
 		1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */; };
 		1B104280291D01DA00DC4676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10427F291D01DA00DC4676 /* ContentView.swift */; };
 		1B104282291D01DB00DC4676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B104281291D01DB00DC4676 /* Assets.xcassets */; };
@@ -68,6 +77,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15A13F8529F680EB00F892E1 /* RecommendedChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedChat.swift; sourceTree = "<group>"; };
+		15A13F8729F69BAC00F892E1 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
+		15A13F8929F6A3AF00F892E1 /* AttendEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendEvent.swift; sourceTree = "<group>"; };
+		15A13F8B29F6CE1E00F892E1 /* FriendReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendReview.swift; sourceTree = "<group>"; };
+		15A13F8D29F6E62100F892E1 /* AttendEventTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendEventTileView.swift; sourceTree = "<group>"; };
+		15A13F8F29F6ED7B00F892E1 /* LevelRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRules.swift; sourceTree = "<group>"; };
+		15A13F9129F6F08D00F892E1 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		15A13F9329F6FF5400F892E1 /* TwoTabSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTabSegmentedControl.swift; sourceTree = "<group>"; };
+		15B2098E29EE978200417973 /* ExploreNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreNotification.swift; sourceTree = "<group>"; };
 		1B10427A291D01DA00DC4676 /* 9Knights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9Knights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9KnightsApp.swift; sourceTree = "<group>"; };
 		1B10427F291D01DA00DC4676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -244,6 +262,9 @@
 			children = (
 				1B14C68A292FFCB100C150F2 /* SegmentedControl.swift */,
 				858281D629D34B4800560916 /* EventTileView.swift */,
+				15A13F9329F6FF5400F892E1 /* TwoTabSegmentedControl.swift */,
+				15A13F8D29F6E62100F892E1 /* AttendEventTileView.swift */,
+				15A13F9129F6F08D00F892E1 /* CustomNavigationBar.swift */,
 				858281E529E48FD300560916 /* StandardBackButton.swift */,
 				858281E729E49DD400560916 /* StandardHeader.swift */,
 			);
@@ -282,6 +303,10 @@
 			children = (
 				1B1042AF291EB97400DC4676 /* Personal.swift */,
 				858281D229D0190A00560916 /* Setting.swift */,
+				15A13F8F29F6ED7B00F892E1 /* LevelRules.swift */,
+				15A13F8729F69BAC00F892E1 /* MyPost.swift */,
+				15A13F8929F6A3AF00F892E1 /* AttendEvent.swift */,
+				15A13F8B29F6CE1E00F892E1 /* FriendReview.swift */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -292,6 +317,7 @@
 				1B14C68C293285FD00C150F2 /* ExploreSearch.swift */,
 				1B1042A9291EB91A00DC4676 /* Explore.swift */,
 				1B14C6922934F0A800C150F2 /* EventDetail.swift */,
+				15B2098E29EE978200417973 /* ExploreNotification.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -328,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				1B1042AB291EB93000DC4676 /* Recommend.swift */,
+				15A13F8529F680EB00F892E1 /* RecommendedChat.swift */,
 			);
 			path = Recommended;
 			sourceTree = "<group>";
@@ -479,30 +506,39 @@
 				1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */,
 				1B14C68D293285FD00C150F2 /* ExploreSearch.swift in Sources */,
 				858281D729D34B4800560916 /* EventTileView.swift in Sources */,
+				15A13F8829F69BAC00F892E1 /* MyPost.swift in Sources */,
 				857C5C8C29E6ABEB00152D93 /* UserLocationViewModel.swift in Sources */,
 				1B1042B2291EC46500DC4676 /* Communication.swift in Sources */,
 				858281D329D0190A00560916 /* Setting.swift in Sources */,
 				858281E329E3350900560916 /* EventImage.swift in Sources */,
 				858281E629E48FD300560916 /* StandardBackButton.swift in Sources */,
+				15A13F8A29F6A3AF00F892E1 /* AttendEvent.swift in Sources */,
+				15A13F8C29F6CE1E00F892E1 /* FriendReview.swift in Sources */,
 				1B14C6932934F0A800C150F2 /* EventDetail.swift in Sources */,
 				1B1042B0291EB97400DC4676 /* Personal.swift in Sources */,
 				1B1042AC291EB93000DC4676 /* Recommend.swift in Sources */,
+				15A13F9429F6FF5400F892E1 /* TwoTabSegmentedControl.swift in Sources */,
 				1B1042AA291EB91A00DC4676 /* Explore.swift in Sources */,
 				858281E829E49DD500560916 /* StandardHeader.swift in Sources */,
 				858281DC29DB3C8A00560916 /* UserInfoViewModel.swift in Sources */,
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
+				15A13F9029F6ED7B00F892E1 /* LevelRules.swift in Sources */,
 				1BD9C61F29356C5700D9833E /* CommunicationSearch.swift in Sources */,
+				15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */,
 				85442D21292D41DD0084D019 /* SetupProfile.swift in Sources */,
 				85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */,
 				85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */,
 				85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */,
 				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
 				1B14C6912932A26A00C150F2 /* RideView.swift in Sources */,
+				15B2098F29EE978200417973 /* ExploreNotification.swift in Sources */,
 				858281D929D48EF900560916 /* UserInfo.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* Event.swift in Sources */,
 				858281DE29DBEC4500560916 /* EventViewModel.swift in Sources */,
+				15A13F9229F6F08D00F892E1 /* CustomNavigationBar.swift in Sources */,
 				1B1FA6D72923F6CA00AFCBE2 /* Login.swift in Sources */,
 				1B14C68B292FFCB100C150F2 /* SegmentedControl.swift in Sources */,
+				15A13F8E29F6E62100F892E1 /* AttendEventTileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"9Knights/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8SM2S9CRL;
+				DEVELOPMENT_TEAM = 6KP64QXTZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "-Knights-Info.plist";
@@ -696,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"9Knights/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8SM2S9CRL;
+				DEVELOPMENT_TEAM = 6KP64QXTZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "-Knights-Info.plist";

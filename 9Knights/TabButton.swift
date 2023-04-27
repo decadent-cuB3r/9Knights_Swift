@@ -121,7 +121,6 @@ struct PopBackground: View {
 
 struct TabButton: View {
     @State var selectedIndex = 0
-
     @State private var showModal = false
     @State private var showCreateEvent = false
     @State private var showCreatePost = false
@@ -140,7 +139,7 @@ struct TabButton: View {
         "探索",
         "旅程",
         "",
-        "交流",
+        "貼文",
         "個人"
     ]
     
@@ -190,6 +189,7 @@ struct TabButton: View {
                                     showModal.toggle()
                                 }else{
                                     self.selectedIndex = number
+                                    
                                 }
                             }, label: {
                                 if number == 2{
@@ -229,7 +229,6 @@ struct TabButton: View {
                     .shadow(color: Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 0.5) ,radius: 5)
                     
                     Button( action: {
-                        
                     }, label: {
                         VStack{
                             Image(systemName: icons[2])
