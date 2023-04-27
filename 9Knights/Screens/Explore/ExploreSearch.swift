@@ -23,6 +23,7 @@ struct ExploreSearch: View {
                     .frame(width: 300, height: 50)
                     .background(Color("Gray"))
                     .cornerRadius(20)
+                    .ignoresSafeArea(.keyboard, edges: . bottom)
                 Button{
                     presentationMode.wrappedValue.dismiss()
                 }label: {

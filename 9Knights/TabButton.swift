@@ -168,7 +168,7 @@ struct TabButton: View {
                 
                 switch selectedIndex {
                 case 0 :
-                    Explore()
+                    Explore(path: "root")
                 case 1 :
                     RecommendRoot()
                 case 3 :
@@ -271,3 +271,5 @@ struct TabButton_Previews: PreviewProvider {
         TabButton()
     }
 }
+
+

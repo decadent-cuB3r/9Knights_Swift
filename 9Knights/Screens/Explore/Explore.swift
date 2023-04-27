@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct Explore: View {
+    var path: String
     @State private var isPresented = false
     @FirestoreQuery(collectionPath: "events") var events: [Event]
     @FirestoreQuery(collectionPath: "areaTags") var tags: [Tag]
@@ -137,6 +138,6 @@ struct Explore: View {
 
 struct Explore_Previews: PreviewProvider {
     static var previews: some View {
-        Explore()
+        Explore(path: "root")
     }
 }
