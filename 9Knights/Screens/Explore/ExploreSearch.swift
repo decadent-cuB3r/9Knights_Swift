@@ -13,6 +13,7 @@ struct ExploreSearch: View {
     @State private var placetags = ["北部","中部","南部","東部"]
     @Environment(\.presentationMode) var presentationMode
     @State private var searchText = ""
+    @Binding var hideTab: Bool
     var body: some View {
         NavigationStack{
             VStack{
@@ -84,11 +85,17 @@ struct ExploreSearch: View {
             }.padding()
             Spacer()
         }.navigationBarBackButtonHidden(true)
+        .onAppear {
+            hideTab = true
+                    }
+        .onDisappear {
+            hideTab = false
+        }
     }
 }
 
-struct ExploreSearch_Previews: PreviewProvider {
-    static var previews: some View {
-        ExploreSearch()
-    }
-}
+//struct ExploreSearch_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExploreSearch()
+//    }
+//}

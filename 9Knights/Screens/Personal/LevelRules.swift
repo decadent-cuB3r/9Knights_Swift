@@ -118,7 +118,9 @@ struct LevelRules: View {
            }
            
        }
+       .navigationBarBackButtonHidden(false)
        .navigationBarHidden(true)
+       
    }
 }
 

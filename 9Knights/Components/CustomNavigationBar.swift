@@ -43,7 +43,6 @@ struct CustomBar: View {
             }
             .padding(.horizontal, 16)
         }
-        .frame(height: 44)
-        .padding(.bottom,20)
+        .frame(height: 70)
     }
 }

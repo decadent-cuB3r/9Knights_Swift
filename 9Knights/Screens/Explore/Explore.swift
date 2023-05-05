@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 struct CustomNavigationBar: View {
     @State private var isPresented = false
     @State private var isPresentedright = false
+    @Binding var hideTab: Bool
     var body: some View {
         ZStack {
             Rectangle()
@@ -22,7 +23,7 @@ struct CustomNavigationBar: View {
                 Spacer()
                 HStack{
                     NavigationLink(
-                        destination: ExploreSearch(),
+                        destination: ExploreSearch(hideTab: $hideTab),
                         isActive: $isPresented,
                         label: {
                             ZStack{
@@ -56,19 +57,18 @@ struct CustomNavigationBar: View {
 }
 
 struct Explore: View {
-    
     @FirestoreQuery(collectionPath: "events") var events: [Event]
     @FirestoreQuery(collectionPath: "areaTags") var tags: [Tag]
     
     @State var selectedTag = "All"
-    
+    @Binding var hideTab: Bool
     var body: some View {
         NavigationView{
             NavigationStack{
-                CustomNavigationBar()
-                ScrollView {
+                CustomNavigationBar(hideTab: $hideTab)
+                
                     //tag Selection section
-                    ScrollView(.horizontal, showsIndicators: false){
+                    ScrollView(.horizontal,showsIndicators: false){
                         HStack{
                             Spacer(minLength: 10)
                             ZStack{
@@ -124,6 +124,7 @@ struct Explore: View {
                             }
                         }.frame(height: 60)
                     }
+               
                     Button{
                         
                     }label: {
@@ -137,6 +138,7 @@ struct Explore: View {
                         .foregroundColor(Color("WordGray"))
                         .padding(.leading,20)
                     }
+                ScrollView {
                     //Grid show Event View Tiles
                     let twoItemGrid = [GridItem(.flexible(),spacing: -10), GridItem(.flexible(),spacing: 0)]
                     LazyVGrid(columns: twoItemGrid,spacing: 20) {
@@ -146,12 +148,14 @@ struct Explore: View {
                     }
                 }.navigationBarHidden(true)
             }
+        }.onAppear {
+            hideTab = false
         }
     }
 }
 
-struct Explore_Previews: PreviewProvider {
-    static var previews: some View {
-        Explore()
-    }
-}
+//struct Explore_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Explore()
+//    }
+//}

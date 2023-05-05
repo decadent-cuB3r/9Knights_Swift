@@ -270,8 +270,8 @@ struct EventDetail: View {
     }
 }
 
-struct EventDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        Explore()
-    }
-}
+//struct EventDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Explore()
+//    }
+//}

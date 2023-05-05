@@ -67,7 +67,6 @@ struct Personal: View {
             return Path(path.cgPath)
         }
     }
-    
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
     var body: some View {

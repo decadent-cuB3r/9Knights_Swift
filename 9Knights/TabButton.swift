@@ -98,7 +98,7 @@ struct Popup: View {
             
         }.edgesIgnoringSafeArea(.all)
             .navigationBarBackButtonHidden(true)
-            .padding(.top,620)
+            .padding(.top,570)
     }
 }
 
@@ -118,15 +118,12 @@ struct PopBackground: View {
     }
 }
 
-
 struct TabButton: View {
     @State var selectedIndex = 0
     @State private var showModal = false
     @State private var showCreateEvent = false
     @State private var showCreatePost = false
-    
 
-    
     let icons = [
         "house",
         "map",
@@ -159,15 +156,14 @@ struct TabButton: View {
         }
     }
 
-    
+    @State private var hideTab = false
     var body: some View {
         
-        ZStack{
             ZStack{
                 
                 switch selectedIndex {
                 case 0 :
-                    Explore()
+                    Explore(hideTab: $hideTab)
                 case 1 :
                     RecommendRoot()
                 case 3 :
@@ -177,92 +173,94 @@ struct TabButton: View {
                         .environmentObject(viewModel)
                 }
                 
-            }
-            
-            ZStack(alignment: .bottomLeading){
-                ZStack{
-                    HStack{
-                        ForEach(0..<5, id: \.self ){ number in
-                            Spacer()
-                            Button( action: {
-                                if number == 2{
-                                    showModal.toggle()
-                                }else{
-                                    self.selectedIndex = number
-                                    
-                                }
-                            }, label: {
-                                if number == 2{
-                                    VStack{
-                                        Image(systemName: icons[number])
+            }.overlay(
+                ZStack(alignment: .bottomLeading){
+                    ZStack{
+                        HStack{
+                            ForEach(0..<5, id: \.self ){ number in
+                                Spacer()
+                                Button( action: {
+                                    if number == 2{
+                                        showModal.toggle()
+                                    }else{
+                                        self.selectedIndex = number
                                         
-                                            .font(.system(size: 80,
-                                                          weight: .regular,
-                                                          design: .default))
-                                            .foregroundColor( .white )
-                                            .frame(width: 60)
-                                            .padding(-2)
-                                    }.cornerRadius(10)
-                                }else{
-                                    VStack{
-                                        Image(systemName: icons[number])
-                                            .font(.system(size: 25,
-                                                          weight: .regular,
-                                                          design: .default))
-                                            .foregroundColor( selectedIndex == number ? Color("Red") : Color("WordLightGray"))
-                                        Text(tabWords[number])
-                                            .font(.system(size: 10))
-                                            .padding(1)
-                                            .foregroundColor(selectedIndex == number ? Color("Red") : Color("WordLightGray"))
+                                    }
+                                }, label: {
+                                    if number == 2{
+                                        VStack{
+                                            Image(systemName: icons[number])
+                                            
+                                                .font(.system(size: 80,
+                                                              weight: .regular,
+                                                              design: .default))
+                                                .foregroundColor( .white )
+                                                .frame(width: 60)
+                                                .padding(-2)
+                                        }.cornerRadius(10)
+                                    }else{
+                                        VStack{
+                                            Image(systemName: icons[number])
+                                                .font(.system(size: 25,
+                                                              weight: .regular,
+                                                              design: .default))
+                                                .foregroundColor( selectedIndex == number ? Color("Red") : Color("WordLightGray"))
+                                            Text(tabWords[number])
+                                                .font(.system(size: 10))
+                                                .padding(1)
+                                                .foregroundColor(selectedIndex == number ? Color("Red") : Color("WordLightGray"))
+                                        }
                                     }
                                 }
+                                )
+                                .buttonStyle(StaticButtonStyle())
+                                Spacer()
                             }
-                            )
-                            .buttonStyle(StaticButtonStyle())
-                            Spacer()
+                            .frame(maxWidth: 30, maxHeight: 90)
+                            .padding(.bottom, 10)
                         }
-                        .frame(maxWidth: 30, maxHeight: 90)
-                        .padding(.bottom, 10)
+                        .background(.white)
+                        .cornerRadius(30)
+                        .shadow(color: Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 0.5) ,radius: 5)
+                        
+                        Button( action: {
+                        }, label: {
+                            VStack{
+                                Image(systemName: icons[2])
+                                    .font(.system(size: 40,
+                                                  weight: .regular,
+                                                  design: .default))
+                                    .foregroundColor( .white )
+                                    .frame(width: 70, height: 60)
+                                    .background( Color("Red"))
+                                    .padding(.bottom,-8)
+                                Triangle()
+                                    .frame(width: 70, height: 25)
+                                    .padding(0)
+                                    .foregroundColor( Color("Red"))
+                            }
+                            .cornerRadius(10)
+                            .frame(width: 0, height: 0)
+                        })
+                        .padding(.bottom, 40)
                     }
-                    .background(.white)
-                    .cornerRadius(30)
-                    .shadow(color: Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 0.5) ,radius: 5)
-                    
-                    Button( action: {
-                    }, label: {
-                        VStack{
-                            Image(systemName: icons[2])
-                                .font(.system(size: 40,
-                                              weight: .regular,
-                                              design: .default))
-                                .foregroundColor( .white )
-                                .frame(width: 70, height: 60)
-                                .background( Color("Red"))
-                                .padding(.bottom,-8)
-                            Triangle()
-                                .frame(width: 70, height: 25)
-                                .padding(0)
-                                .foregroundColor( Color("Red"))
+                    ZStack{
+                        if showModal{
+                            PopBackground( showModal: $showModal )
+                                .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
                         }
-                        .cornerRadius(10)
-                        .frame(width: 0, height: 0)
-                    })
-                    .padding(.bottom, 40)
+                        Popup(showModal: $showModal, showCreateEvent: $showCreateEvent, showCreatePost: $showCreatePost)
+                            .offset(y: showModal ? 0 : UIScreen.main.bounds.height)
+                            .animation(.spring(response: 0.5, dampingFraction: 1, blendDuration: 0.5), value: showModal)
+                        
+                    }.fullScreenCover(isPresented: $showCreateEvent){ EventImage() }
+                        .fullScreenCover(isPresented: $showCreatePost, content: {EventImage()})
                 }
-                ZStack{
-                    if showModal{
-                        PopBackground( showModal: $showModal )
-                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
-                    }
-                    Popup(showModal: $showModal, showCreateEvent: $showCreateEvent, showCreatePost: $showCreatePost)
-                        .offset(y: showModal ? 0 : UIScreen.main.bounds.height)
-                        .animation(.spring(response: 0.5, dampingFraction: 1, blendDuration: 0.5), value: showModal)
-                    
-                }.fullScreenCover(isPresented: $showCreateEvent){ EventImage() }
-                    .fullScreenCover(isPresented: $showCreatePost, content: {EventImage()})
-            }.edgesIgnoringSafeArea(.all)
+                .opacity(hideTab ? 0 : 1)
+                .disabled(hideTab)
+                .padding(.bottom, -40)
+            )
         }
-    }
 }
 
 struct TabButton_Previews: PreviewProvider {

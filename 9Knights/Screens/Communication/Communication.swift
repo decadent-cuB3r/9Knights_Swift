@@ -38,7 +38,7 @@ struct CommunicationNavigationBar: View {
 struct Communication: View {
     @State private var isPresented = false
     @State private var select: Int = 0
-        private var items = ["熱門", "最新", "追蹤", "珍藏"]
+    private var items = ["熱門", "最新", "追蹤", "珍藏"]
     
     var body: some View {
         NavigationView{

@@ -8,6 +8,7 @@
 import SwiftUI
 struct Setting: View {
     @EnvironmentObject var viewModel: AuthenticationViewModel
+    @State private var hideTab = false
     @State private var isOn = false
     private func signOut() {
         viewModel.signOut()
@@ -19,49 +20,56 @@ struct Setting: View {
                 VStack{
                     HStack{
                         Toggle("暗色模式", isOn: $isOn)
-                            .font(.system(size: 20)).bold()
+                            .font(.system(size: 16)).bold()
                             .toggleStyle(SwitchToggleStyle(tint: Color("Red")))
-                    }.padding(.horizontal).frame(height: 50)
+                    }.padding(.horizontal).frame(height: 40)
                     Divider()
                     HStack{
                         Text("帳號管理")
-                            .font(.system(size: 20)).bold()
+                            .font(.system(size: 16)).bold()
                         Spacer()
                         Image("BlackArrowRight")
-                    }.padding(.horizontal).frame(height: 50)
+                    }.padding(.horizontal).frame(height: 40)
                     Divider()
                     HStack{
                         Text("常見問題")
-                            .font(.system(size: 20)).bold()
+                            .font(.system(size: 16)).bold()
                         Spacer()
                         Image("BlackArrowRight")
-                    }.padding(.horizontal).frame(height: 50)
+                    }.padding(.horizontal).frame(height: 40)
                     Divider()
                     HStack{
                         Text("使用說明")
-                            .font(.system(size: 20)).bold()
+                            .font(.system(size: 16)).bold()
                         Spacer()
                         Image("BlackArrowRight")
-                    }.padding(.horizontal).frame(height: 50)
+                    }.padding(.horizontal).frame(height: 40)
                     Divider()
                     Spacer()
                     VStack{
                         Divider()
                         Button(action: signOut) {
-
+                            
                             Text("登出")
-                                .font(.system(size: 20)).bold()
+                                .font(.system(size: 16)).bold()
                                 .foregroundColor(Color("Red"))
                             Spacer()
-                        }.padding()
+                        }.padding().frame(height: 40)
                         Divider()
                     }
-                   
-                   
+                    
+                    
                 }
             }
             
-        }.navigationBarBackButtonHidden(true)
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            hideTab = true
+        }
+        .onDisappear {
+            hideTab = false
+        }
     }
 }
 
