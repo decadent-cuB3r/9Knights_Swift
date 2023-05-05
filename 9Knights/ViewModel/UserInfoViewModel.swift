@@ -10,11 +10,27 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+public var UserID: String = ""
+
 @MainActor class UserInfoViewModel: ObservableObject {
-    @Published var name = ""
     @Published var bikeModel = ""
     @Published var biography = ""
+    @Published var surName = ""
+    @Published var location = ""
     
+    let db = Firestore.firestore().collection("users").document(UserID)
     
-    let db = Firestore.firestore()
+    func initialData() async -> Bool {
+        do {
+            try await db.setData([
+                "bikeModel": bikeModel,
+                "surName": surName,
+                "location": location,
+                "biography": biography
+            ])
+            return true
+        } catch {
+            return false
+        }
+    }
 }

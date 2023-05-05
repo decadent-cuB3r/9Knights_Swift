@@ -8,14 +8,15 @@
 import SwiftUI
 import UIKit
 
-//Static Button
+// MARK: Static Button
 struct StaticButtonStyle: ButtonStyle{
     func makeBody (configuration: Configuration) -> some View{
         configuration.label
     }
 }
 
-struct Popup: View {
+// MARK: center popup
+private struct Popup: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var showModal: Bool
@@ -102,7 +103,7 @@ struct Popup: View {
     }
 }
 
-struct PopBackground: View {
+private struct PopBackground: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var showModal: Bool
@@ -119,7 +120,7 @@ struct PopBackground: View {
 }
 
 
-struct TabButton: View {
+@MainActor struct TabButton: View {
     @State var selectedIndex = 0
     @State private var showModal = false
     @State private var showCreateEvent = false
@@ -167,7 +168,7 @@ struct TabButton: View {
                 
                 switch selectedIndex {
                 case 0 :
-                    Explore(path: "root")
+                    Explore()
                 case 1 :
                     RecommendRoot()
                 case 3 :

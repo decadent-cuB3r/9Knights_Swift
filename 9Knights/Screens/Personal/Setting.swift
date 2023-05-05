@@ -14,53 +14,54 @@ struct Setting: View {
     }
     var body: some View {
         NavigationStack{
-            VStack{
-                CustomBar(text: "設定")
+            ScrollView{
                 VStack{
-                    HStack{
-                        Toggle("暗色模式", isOn: $isOn)
-                            .font(.system(size: 20)).bold()
-                            .toggleStyle(SwitchToggleStyle(tint: Color("Red")))
-                    }.padding(.horizontal).frame(height: 50)
-                    Divider()
-                    HStack{
-                        Text("帳號管理")
-                            .font(.system(size: 20)).bold()
-                        Spacer()
-                        Image("BlackArrowRight")
-                    }.padding(.horizontal).frame(height: 50)
-                    Divider()
-                    HStack{
-                        Text("常見問題")
-                            .font(.system(size: 20)).bold()
-                        Spacer()
-                        Image("BlackArrowRight")
-                    }.padding(.horizontal).frame(height: 50)
-                    Divider()
-                    HStack{
-                        Text("使用說明")
-                            .font(.system(size: 20)).bold()
-                        Spacer()
-                        Image("BlackArrowRight")
-                    }.padding(.horizontal).frame(height: 50)
-                    Divider()
-                    Spacer()
+                    CustomBar(text: "設定")
                     VStack{
-                        Divider()
-                        Button(action: signOut) {
-
-                            Text("登出")
+                        HStack{
+                            Toggle("暗色模式", isOn: $isOn)
                                 .font(.system(size: 20)).bold()
-                                .foregroundColor(Color("Red"))
-                            Spacer()
-                        }.padding()
+                                .toggleStyle(SwitchToggleStyle(tint: Color("Red")))
+                        }.padding(.horizontal).frame(height: 50)
                         Divider()
+                        HStack{
+                            Text("帳號管理")
+                                .font(.system(size: 20)).bold()
+                            Spacer()
+                            Image("BlackArrowRight")
+                        }.padding(.horizontal).frame(height: 50)
+                        Divider()
+                        HStack{
+                            Text("常見問題")
+                                .font(.system(size: 20)).bold()
+                            Spacer()
+                            Image("BlackArrowRight")
+                        }.padding(.horizontal).frame(height: 50)
+                        Divider()
+                        HStack{
+                            Text("使用說明")
+                                .font(.system(size: 20)).bold()
+                            Spacer()
+                            Image("BlackArrowRight")
+                        }.padding(.horizontal).frame(height: 50)
+                        Divider()
+                        Spacer()
+                        VStack{
+                            Divider()
+                            Button(action: signOut) {
+                                
+                                Text("登出")
+                                    .font(.system(size: 20)).bold()
+                                    .foregroundColor(Color("Red"))
+                                Spacer()
+                            }.padding()
+                            Divider()
+                        }
+                        
+                        
                     }
-                   
-                   
                 }
             }
-            
         }.navigationBarBackButtonHidden(true)
     }
 }

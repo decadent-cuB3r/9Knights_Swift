@@ -49,6 +49,11 @@
 		85442D3F293518B80084D019 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D3E293518B80084D019 /* AuthenticationViewModel.swift */; };
 		85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85442D4129353AA50084D019 /* AuthenticationView.swift */; };
 		857C5C8C29E6ABEB00152D93 /* UserLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C5C8B29E6ABEB00152D93 /* UserLocationViewModel.swift */; };
+		857C5C8F29FAE6C900152D93 /* EventDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C5C8E29FAE6C900152D93 /* EventDetails.swift */; };
+		857C5C912A01156600152D93 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C5C902A01156600152D93 /* CustomAlert.swift */; };
+		857C5C932A01158800152D93 /* CustomAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C5C922A01158800152D93 /* CustomAlertButton.swift */; };
+		857C5C952A0123BD00152D93 /* CustomAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C5C942A0123BD00152D93 /* CustomAlertModifier.swift */; };
+		857C5C972A0123E200152D93 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C5C962A0123E200152D93 /* ViewExtension.swift */; };
 		858281D329D0190A00560916 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D229D0190A00560916 /* Setting.swift */; };
 		858281D729D34B4800560916 /* EventTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D629D34B4800560916 /* EventTileView.swift */; };
 		858281D929D48EF900560916 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858281D829D48EF900560916 /* UserInfo.swift */; };
@@ -119,6 +124,11 @@
 		85442D3E293518B80084D019 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		85442D4129353AA50084D019 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		857C5C8B29E6ABEB00152D93 /* UserLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationViewModel.swift; sourceTree = "<group>"; };
+		857C5C8E29FAE6C900152D93 /* EventDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetails.swift; sourceTree = "<group>"; };
+		857C5C902A01156600152D93 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		857C5C922A01158800152D93 /* CustomAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertButton.swift; sourceTree = "<group>"; };
+		857C5C942A0123BD00152D93 /* CustomAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertModifier.swift; sourceTree = "<group>"; };
+		857C5C962A0123E200152D93 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		858281D229D0190A00560916 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		858281D629D34B4800560916 /* EventTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTileView.swift; sourceTree = "<group>"; };
 		858281D829D48EF900560916 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -267,6 +277,10 @@
 				15A13F9129F6F08D00F892E1 /* CustomNavigationBar.swift */,
 				858281E529E48FD300560916 /* StandardBackButton.swift */,
 				858281E729E49DD400560916 /* StandardHeader.swift */,
+				857C5C902A01156600152D93 /* CustomAlert.swift */,
+				857C5C922A01158800152D93 /* CustomAlertButton.swift */,
+				857C5C942A0123BD00152D93 /* CustomAlertModifier.swift */,
+				857C5C962A0123E200152D93 /* ViewExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -337,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				858281E229E3350900560916 /* EventImage.swift */,
+				857C5C8E29FAE6C900152D93 /* EventDetails.swift */,
 			);
 			path = CreateEvent;
 			sourceTree = "<group>";
@@ -501,10 +516,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3049DE292E7B3300FAE9B4 /* Tag.swift in Sources */,
+				857C5C952A0123BD00152D93 /* CustomAlertModifier.swift in Sources */,
 				1B104280291D01DA00DC4676 /* ContentView.swift in Sources */,
 				85442D3F293518B80084D019 /* AuthenticationViewModel.swift in Sources */,
 				1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */,
 				1B14C68D293285FD00C150F2 /* ExploreSearch.swift in Sources */,
+				857C5C972A0123E200152D93 /* ViewExtension.swift in Sources */,
 				858281D729D34B4800560916 /* EventTileView.swift in Sources */,
 				15A13F8829F69BAC00F892E1 /* MyPost.swift in Sources */,
 				857C5C8C29E6ABEB00152D93 /* UserLocationViewModel.swift in Sources */,
@@ -521,6 +538,7 @@
 				1B1042AA291EB91A00DC4676 /* Explore.swift in Sources */,
 				858281E829E49DD500560916 /* StandardHeader.swift in Sources */,
 				858281DC29DB3C8A00560916 /* UserInfoViewModel.swift in Sources */,
+				857C5C8F29FAE6C900152D93 /* EventDetails.swift in Sources */,
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
 				15A13F9029F6ED7B00F892E1 /* LevelRules.swift in Sources */,
 				1BD9C61F29356C5700D9833E /* CommunicationSearch.swift in Sources */,
@@ -529,10 +547,12 @@
 				85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */,
 				85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */,
 				85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */,
+				857C5C912A01156600152D93 /* CustomAlert.swift in Sources */,
 				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
 				1B14C6912932A26A00C150F2 /* RideView.swift in Sources */,
 				15B2098F29EE978200417973 /* ExploreNotification.swift in Sources */,
 				858281D929D48EF900560916 /* UserInfo.swift in Sources */,
+				857C5C932A01158800152D93 /* CustomAlertButton.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* Event.swift in Sources */,
 				858281DE29DBEC4500560916 /* EventViewModel.swift in Sources */,
 				15A13F9229F6F08D00F892E1 /* CustomNavigationBar.swift in Sources */,

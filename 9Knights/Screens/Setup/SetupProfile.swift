@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct SetupProfile: View {
-    @State private var userName = ""
-    @State private var email = ""
-    @State private var password = ""
-    @State private var passwordCheck = ""
+    @StateObject var viewModel = UserInfoViewModel()
     @State private var positionY = 700
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var path: NavigationPath
@@ -47,7 +44,7 @@ struct SetupProfile: View {
                         Text("創建個人資料")
                             .font(.system(size: 32,
                                           weight: .bold))
-                        TextField("使用者暱稱", text: $userName)
+                        TextField("使用者暱稱", text: $viewModel.surName)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
                             .background(Color("Gray"))
@@ -55,7 +52,7 @@ struct SetupProfile: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
                             ).padding(10)
-                        TextField("居住地區", text: $email)
+                        TextField("居住地區", text: $viewModel.location)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
                             .background(Color("Gray"))
@@ -63,7 +60,7 @@ struct SetupProfile: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1)
                             ).padding(10)
-                        TextField("您的愛車", text: $password)
+                        TextField("您的愛車", text: $viewModel.bikeModel)
                             .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                             .frame(width: 300, height: 50)
                             .background(Color("Gray"))

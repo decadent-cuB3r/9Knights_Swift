@@ -14,13 +14,14 @@ struct EventImage: View {
     @State var data: Data?
     @State var selectedItem: [PhotosPickerItem] = []
     
+    
     var body: some View {
         NavigationStack{
             VStack{
                 HStack{
                     StandardBackButton()
                     StandardHeader(text: "旅程封面")
-                    
+                    NavigationLink(destination: EventDetails()){ Text("下一步") }
                 }
                 Form {
                               Section {
@@ -54,6 +55,7 @@ struct EventImage: View {
                               Section {
                                   Button("Upload to Firebase Storage") {
                                       // Function to post data to Firebase Storage
+                                      
                                   }.disabled(data == nil)
                               }
                           }

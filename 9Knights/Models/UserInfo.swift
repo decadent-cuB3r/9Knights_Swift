@@ -12,15 +12,8 @@ import FirebaseFirestoreSwift
 
 struct UserInfo: Codable, Identifiable {
     @DocumentID var id: String?
-    var UID: String
-    var tagName: String
-    var postID: [String]
-    var eventID: [String]
-    var participatedEventID: [String]
-    var biography: String
     var name: String
+    var surName: String
+    var biography: String
     var bikeModel: String
-    var followersID: [String]
-    var followingID: [String]
-    var firstLogin: Bool = true
 }

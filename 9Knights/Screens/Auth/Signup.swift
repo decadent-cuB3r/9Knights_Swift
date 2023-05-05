@@ -5,6 +5,7 @@
 //  Created by decadent cub3r on 2022/11/22.
 //
 
+import Foundation
 import SwiftUI
 import FirebaseAuth
 import Firebase
@@ -87,7 +88,7 @@ struct Signup: View {
                         } else {
                             ProgressView()
                         }
-                    }
+                    }.alert(title: "Inncorect Password", isPresented: $viewModel.showPasswordAlert)
                     
                     
                     HStack{
@@ -105,9 +106,24 @@ struct Signup: View {
             .navigationBarBackButtonHidden(true)
         }
 }
-struct Signup_Previews: PreviewProvider {
-    static var previews: some View {
-        Signup()
-    }
-}
+//#if DEBUG
+//class demoViewModel: ObservableObject {
+//    @Published var userName = ""
+//    @Published var email = ""
+//    @Published var password = ""
+//    @Published var confirmPassword = ""
+//    @Published var stayLoggedIn = false
+//    @Published var showPasswordAlert = false
+//    
+//    init(){
+//        userName = "ezra"
+//    }
+//}
+//struct Signup_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Signup()
+//            .environmentObject(demoViewModel)
+//    }
+//}
+//#endif
 
