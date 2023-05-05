@@ -11,10 +11,13 @@ import UIKit
 struct ContentView: View {
     @StateObject var viewModel = AuthenticationViewModel()
     var body: some View {
-        if viewModel.authenticationState == .Authenticated {
+        switch viewModel.authenticationState {
+        case .FirstLogin :
+            SetupProfile(path: .constant(NavigationPath()))
+        case .Authenticated :
             TabButton()
                 .environmentObject(viewModel)
-        } else {
+        default :
             AuthenticationView()
                 .environmentObject(viewModel)
         }

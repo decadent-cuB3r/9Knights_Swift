@@ -9,7 +9,9 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
 struct CustomNavigationBar: View {
+
     @State private var isPresented = false
     @State private var isPresentedright = false
     @Binding var hideTab: Bool

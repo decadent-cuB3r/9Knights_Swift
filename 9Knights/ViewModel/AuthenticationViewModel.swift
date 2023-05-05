@@ -14,6 +14,7 @@ enum AuthenticationState {
     case Authenticated
     case Authenticating
     case Unauthenticated
+    case FirstLogin
 }
 
 enum AuthenticationFlow {
@@ -30,10 +31,12 @@ enum AuthenticationFlow {
     @Published var password = ""
     @Published var confirmPassword = ""
     @Published var stayLoggedIn = false
+    @Published var showPasswordAlert = false
     @Published var user: User?
     
     @Published var errorMessage = ""
     @Published var isLogin: Bool = false
+    let firstSetup: Bool = true
     let auth = Auth.auth()
     let db = Firestore.firestore()
     init() {
@@ -72,15 +75,23 @@ enum AuthenticationFlow {
       }
     
     func signUp() async -> Bool {
-        authenticationState = .Authenticating
-        do  {
-            try await Auth.auth().createUser(withEmail: email, password: password)
-            return true
-        }
-        catch {
-            print(error)
-            errorMessage = error.localizedDescription
-            authenticationState = .Unauthenticated
+        if password == confirmPassword {
+            authenticationState = .Authenticating
+            do  {
+                try await Auth.auth().createUser(withEmail: email, password: password)
+                try await db.collection("users").document(user!.uid).setData(["name": userName])
+                UserID = user!.uid
+                authenticationState = .FirstLogin
+                return true
+            }
+            catch {
+                print(error)
+                errorMessage = error.localizedDescription
+                authenticationState = .Unauthenticated
+                return false
+            }
+        } else {
+            showPasswordAlert = true
             return false
         }
     }
