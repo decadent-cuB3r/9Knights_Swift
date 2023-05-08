@@ -3,4 +3,54 @@
    uuid = "119A99CF-977D-4A62-97C9-187E1B092FF1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A87986E5-438B-41DA-AC43-85E30CC16759"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "9Knights/Screens/Explore/Explore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "CustomNavigationBar"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "A87986E5-438B-41DA-AC43-85E30CC16759 - de8f4e632a1a8f4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of _Knights.CustomNavigationBar.isPresentedright : Swift.Bool"
+                  moduleName = "9Knights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peggy/Documents/GitHub/9Knights_Swift/9Knights/Screens/Explore/Explore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "A87986E5-438B-41DA-AC43-85E30CC16759 - 8499478fc3fa0e16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_Knights.CustomNavigationBar.init(hideTab: SwiftUI.Binding&lt;Swift.Bool&gt;) -&gt; _Knights.CustomNavigationBar"
+                  moduleName = "9Knights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peggy/Documents/GitHub/9Knights_Swift/9Knights/Screens/Explore/Explore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

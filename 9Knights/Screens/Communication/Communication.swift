@@ -13,7 +13,7 @@ struct CommunicationNavigationBar: View {
                 .foregroundColor(Color.white)
                 .ignoresSafeArea()
             HStack {
-                Text("車友交流").font(.system(size: 32)).bold()
+                Text("貼文").font(.system(size: 32)).bold()
                 Spacer()
                 HStack{
                     NavigationLink(destination: CommunicationSearch().navigationBarHidden(true)){
