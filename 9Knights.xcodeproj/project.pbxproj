@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		158869E92A090F990070453B /* EventRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869E82A090F990070453B /* EventRoute.swift */; };
 		158869EB2A09860D0070453B /* EventSetPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869EA2A09860D0070453B /* EventSetPointer.swift */; };
+		158869ED2A09A7B40070453B /* CreatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869EC2A09A7B40070453B /* CreatePost.swift */; };
 		15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8529F680EB00F892E1 /* RecommendedChat.swift */; };
 		15A13F8829F69BAC00F892E1 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8729F69BAC00F892E1 /* MyPost.swift */; };
 		15A13F8A29F6A3AF00F892E1 /* AttendEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8929F6A3AF00F892E1 /* AttendEvent.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		158869E82A090F990070453B /* EventRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRoute.swift; sourceTree = "<group>"; };
 		158869EA2A09860D0070453B /* EventSetPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSetPointer.swift; sourceTree = "<group>"; };
+		158869EC2A09A7B40070453B /* CreatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePost.swift; sourceTree = "<group>"; };
 		15A13F8529F680EB00F892E1 /* RecommendedChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedChat.swift; sourceTree = "<group>"; };
 		15A13F8729F69BAC00F892E1 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
 		15A13F8929F6A3AF00F892E1 /* AttendEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendEvent.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				858281E229E3350900560916 /* EventImage.swift */,
 				158869E82A090F990070453B /* EventRoute.swift */,
+				158869EC2A09A7B40070453B /* CreatePost.swift */,
 				158869EA2A09860D0070453B /* EventSetPointer.swift */,
 				857C5C8E29FAE6C900152D93 /* EventDetails.swift */,
 			);
@@ -548,6 +551,7 @@
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
 				158869EB2A09860D0070453B /* EventSetPointer.swift in Sources */,
 				15A13F9029F6ED7B00F892E1 /* LevelRules.swift in Sources */,
+				158869ED2A09A7B40070453B /* CreatePost.swift in Sources */,
 				158869E92A090F990070453B /* EventRoute.swift in Sources */,
 				1BD9C61F29356C5700D9833E /* CommunicationSearch.swift in Sources */,
 				15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */,

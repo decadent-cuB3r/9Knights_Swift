@@ -66,7 +66,7 @@ struct EventRouteNavigationBar: View {
 }
 
 struct EventRoute: View {
-    let coordinate = CLLocationCoordinate2D(latitude: 25.033671, longitude: 121.564427)
+    let coordinate = CLLocationCoordinate2D(latitude: 25.0255049, longitude: 121.5373224)
     @State var offset : CGFloat = -200
 
     var body: some View {

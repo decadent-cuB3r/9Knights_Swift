@@ -256,7 +256,7 @@ private struct PopBackground: View {
                             .animation(.spring(response: 0.5, dampingFraction: 1, blendDuration: 0.5), value: showModal)
                         
                     }.fullScreenCover(isPresented: $showCreateEvent){ EventImage() }
-                        .fullScreenCover(isPresented: $showCreatePost, content: {EventImage()})
+                        .fullScreenCover(isPresented: $showCreatePost, content: {CreatePost()})
                 }
                 .opacity(hideTab ? 0 : 1)
                 .disabled(hideTab)

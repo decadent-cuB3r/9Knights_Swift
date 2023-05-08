@@ -37,7 +37,7 @@ struct EventDetailsNavigationBar: View {
                 Spacer()
                 Text("旅程內容").font(.system(size: 24)).bold()
                 Spacer()
-                NavigationLink(destination: EventDetails()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 20)).bold() }
+                NavigationLink(destination: TabButton()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 20)).bold() }
             }
             .padding(.horizontal, 16)
         }
@@ -46,12 +46,12 @@ struct EventDetailsNavigationBar: View {
 }
 struct TextEditorWithPlaceholder: View {
      @Binding var introtext: String
-     
+    let text: String
      var body: some View {
          ZStack(alignment: .leading) {
              if introtext.isEmpty {
                 VStack {
-                     Text("寫下您想如何介紹您的旅程...")
+                     Text(text)
                          .foregroundColor(Color("WordGray"))
                          .padding(.top, 10)
                          .padding(.leading, 3)
@@ -61,7 +61,7 @@ struct TextEditorWithPlaceholder: View {
              
              VStack {
                  TextEditor(text: $introtext)
-                     .frame(minHeight: 150, maxHeight: 280)
+                     .frame(minHeight: 150, maxHeight: 180)
                      .opacity(introtext.isEmpty ? 0.6 : 1)
                  Spacer()
              }
@@ -164,7 +164,7 @@ struct EventDetails: View {
                         Spacer()
                     }.frame(maxWidth: 360)
                     ZStack(alignment: .topLeading) {
-                        TextEditorWithPlaceholder(introtext: $introtext)
+                        TextEditorWithPlaceholder(introtext: $introtext, text: "寫下您想如何介紹您的旅程...")
                     }.frame(maxWidth: 360)
                 }.padding(.top)
                 Divider()
