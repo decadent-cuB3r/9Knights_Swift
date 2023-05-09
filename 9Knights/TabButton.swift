@@ -168,7 +168,7 @@ private struct PopBackground: View {
                 case 0 :
                     Explore(hideTab: $hideTab)
                 case 1 :
-                    RecommendRoot()
+                    RecommendRoot(hideTab: $hideTab)
                 case 3 :
                     Communication()
                 default:
@@ -257,7 +257,7 @@ private struct PopBackground: View {
                             .animation(.spring(response: 0.5, dampingFraction: 1, blendDuration: 0.5), value: showModal)
                         
                     }.fullScreenCover(isPresented: $showCreateEvent){ EventImage() }
-                        .fullScreenCover(isPresented: $showCreatePost, content: {EventImage()})
+                        .fullScreenCover(isPresented: $showCreatePost, content: {CreatePost()})
                 }
                 .opacity(hideTab ? 0 : 1)
                 .disabled(hideTab)
