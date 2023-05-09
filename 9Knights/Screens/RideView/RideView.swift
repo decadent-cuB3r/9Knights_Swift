@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct RideView: View {
-    
+    @State var informationShow: Bool = true
     @StateObject private var viewModel = UserLocationViewModel()
     @Environment(\.dismiss) private var dismiss
     
@@ -20,6 +20,9 @@ struct RideView: View {
                     .ignoresSafeArea()
                     .onAppear{
                         viewModel.checkIfLocationServicesIsEnabled()
+                    }
+                    .sheet(isPresented: $informationShow){
+                        RideInformation()
                     }
                 VStack{
                     HStack{
@@ -42,6 +45,12 @@ struct RideView: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
+    }
+}
+
+struct RideInformation: View {
+    var body: some View {
+        Text("test")
     }
 }
 

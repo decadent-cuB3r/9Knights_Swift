@@ -62,7 +62,8 @@ struct SetupPhoto: View {
     @State private var shouldPresentCamera = false
     @State private var positionY = 700
     @State var appear = true
-    @Binding var path: NavigationPath
+    @EnvironmentObject var AuthViewModel: AuthenticationViewModel
+//    @Binding var path: NavigationPath
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var btnBack : some View {
@@ -131,7 +132,7 @@ struct SetupPhoto: View {
                             
                         }
                         Button {
-                            path.append("TabButton")
+                            AuthViewModel.authenticationState = .Authenticated
                         } label: {
                             Spacer()
                             Text("確認")
@@ -143,7 +144,7 @@ struct SetupPhoto: View {
                         .cornerRadius(20)
                         .padding(EdgeInsets(top: 30, leading: 0, bottom: 10, trailing: 0))
                         Button {
-                            path.append("TabButton")
+                            
                         } label: {
                             Spacer()
                             Text("稍後設定")
@@ -172,7 +173,7 @@ struct SetupPhoto: View {
     
     struct SetupPhoto_Previews: PreviewProvider {
         static var previews: some View {
-            SetupPhoto(path: .constant(NavigationPath()))
+            SetupPhoto()
         }
     }
 }

@@ -106,7 +106,7 @@ struct Personal: View {
                             .padding(.top, 25)
                         VStack(alignment:.leading){
                             HStack(alignment: .bottom){
-                                Text("陳辰")
+                                Text(viewModel.userName)
                                     .font(.system(size: 24, weight: .bold))
                                 Spacer()
                                 Text("24")
