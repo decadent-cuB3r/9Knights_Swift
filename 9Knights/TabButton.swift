@@ -167,7 +167,7 @@ private struct PopBackground: View {
                 case 0 :
                     Explore(hideTab: $hideTab)
                 case 1 :
-                    RecommendRoot()
+                    RecommendRoot(hideTab: $hideTab)
                 case 3 :
                     Communication()
                 default:

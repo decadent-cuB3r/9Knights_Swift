@@ -65,8 +65,9 @@ struct RecommendNavigationBar: View {
 struct RecommendRoot: View {
     let days = ["週三", "週四", "週五", "週六", "週日", "週一"]
     let cities = ["台北市", "新北市", "桃園市", "台中市", "台南市", "高雄市"]
-       @State private var selectedCity = "台北市"
-    
+    @State private var selectedCity = "台北市"
+    @Binding var hideTab: Bool
+
     var body: some View {
         NavigationView{
             NavigationStack{
@@ -106,7 +107,7 @@ struct RecommendRoot: View {
                                             Circle()
                                                 .frame(width: 35, height: 35)
                                                 .foregroundColor(.gray)
-                                            NavigationLink(destination: RideView()){
+                                            NavigationLink(destination: RideView(hideTab: $hideTab)){
                                             label: do {
                                                 Text("開始旅程")
                                                     .frame(width: 132, height: 32)
@@ -239,7 +240,7 @@ struct RecommendRoot: View {
                             HStack{
                                 Text("推薦文章").font(.system(size: 20)).bold()
                                 Spacer()
-                                NavigationLink(destination: RideView()){
+                                NavigationLink(destination: RideView(hideTab: $hideTab)){
                                 label: do {
                                     Text("更多")
                                         .font(.system(size: 16)).bold()
@@ -274,7 +275,7 @@ struct RecommendRoot: View {
                             HStack{
                                 Text("您可能有興趣的車友").font(.system(size: 20)).bold()
                                 Spacer()
-                                NavigationLink(destination: RideView()){
+                                NavigationLink(destination: TabButton()){
                                 label: do {
                                     Text("更多")
                                         .font(.system(size: 16)).bold()
@@ -327,8 +328,9 @@ struct RecommendRoot: View {
     }
 }
 
-struct RecommendRoot_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendRoot()
-    }
-}
+//struct RecommendRoot_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        RecommendRoot()
+//    }
+//}
