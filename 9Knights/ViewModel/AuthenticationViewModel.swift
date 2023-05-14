@@ -25,7 +25,7 @@ enum AuthenticationFlow {
 @MainActor class AuthenticationViewModel: ObservableObject {
     @Published var flow: AuthenticationFlow = .login
     @Published var authenticationState: AuthenticationState = .Unauthenticated
-
+    
     @Published var userName = ""
     @Published var email = ""
     @Published var password = ""
