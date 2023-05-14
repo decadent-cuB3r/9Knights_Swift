@@ -157,9 +157,14 @@ struct ButtomMember: View {
         Button{
             
         }label: {
-            Image(systemName: "location.circle.fill")
-                .foregroundColor(Color("Red"))
-                .font(Font.system(size: 50))
+            ZStack{
+                Circle()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color("Red"))
+                Image(systemName: "location.fill")
+                    .foregroundColor(Color.white)
+                    .font(Font.system(size: 30))
+            }
         }.offset(x: 320,y: -70)
         VStack {
                 Capsule()
