@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct RideView: View {
-    @State var informationShow: Bool = true
+    
     @StateObject private var viewModel = UserLocationViewModel()
     @Environment(\.dismiss) private var dismiss
     @State var offset : CGFloat = 80
@@ -186,12 +186,8 @@ struct ButtomMember: View {
     }
 }
 
-
-
-
 //struct RideView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        RideView()
 //    }
 //}
-

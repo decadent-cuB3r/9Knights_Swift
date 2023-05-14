@@ -13,8 +13,7 @@ struct ContentView: View {
     var body: some View {
         switch viewModel.authenticationState {
         case .FirstLogin :
-            SetupProfile()
-                .environmentObject(viewModel)
+            SetupProfile(path: .constant(NavigationPath()))
         case .Authenticated :
             TabButton()
                 .environmentObject(viewModel)

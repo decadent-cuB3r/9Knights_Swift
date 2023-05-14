@@ -143,7 +143,6 @@ private struct PopBackground: View {
     ]
     
     @EnvironmentObject var viewModel: AuthenticationViewModel
-    @EnvironmentObject var userViewModel: UserInfoViewModel
     
     struct Triangle : Shape {
         

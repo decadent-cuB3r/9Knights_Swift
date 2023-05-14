@@ -17,7 +17,6 @@ public var UserID: String = ""
     @Published var biography = ""
     @Published var surName = ""
     @Published var location = ""
-    @Published var image = ""
     
     let db = Firestore.firestore().collection("users").document(UserID)
     
@@ -28,7 +27,7 @@ public var UserID: String = ""
                 "surName": surName,
                 "location": location,
                 "biography": biography
-            ], merge: true)
+            ])
             return true
         } catch {
             return false

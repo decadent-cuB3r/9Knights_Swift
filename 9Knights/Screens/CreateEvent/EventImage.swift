@@ -7,7 +7,7 @@
 
 import SwiftUI
 import PhotosUI
-import FirebaseStorage
+import FirebaseFirestore
 struct EventImageNavigationBar: View {
     @State private var isPresented = false
     @State private var isPresentedright = false
@@ -48,9 +48,9 @@ struct EventImageNavigationBar: View {
 }
 struct EventImage: View {
     
-    @State public var data: Data?
+    @State var data: Data?
     @State var selectedItem: [PhotosPickerItem] = []
-    let storageReference = Storage.storage().reference().child("\(UUID().uuidString)")
+    
     
     var body: some View {
         NavigationStack{
@@ -117,10 +117,8 @@ struct EventImage: View {
                     }
                     VStack {
                         Button("Upload to Firebase Storage") {
-                            //MARK Function to post data to Firebase Storage
-                            storageReference.putData(data!, metadata: nil) { (metadata, error) in
-                                guard let metadata = metadata else { return }
-                            }
+                            // Function to post data to Firebase Storage
+                            
                         }.disabled(data == nil)
                     }.padding()
                     
