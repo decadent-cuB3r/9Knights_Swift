@@ -330,6 +330,7 @@
 		857C5C982A0798BE00152D93 /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
+				158869EC2A09A7B40070453B /* CreatePost.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -374,7 +375,6 @@
 			children = (
 				858281E229E3350900560916 /* EventImage.swift */,
 				158869E82A090F990070453B /* EventRoute.swift */,
-				158869EC2A09A7B40070453B /* CreatePost.swift */,
 				158869EA2A09860D0070453B /* EventSetPointer.swift */,
 				857C5C8E29FAE6C900152D93 /* EventDetails.swift */,
 			);

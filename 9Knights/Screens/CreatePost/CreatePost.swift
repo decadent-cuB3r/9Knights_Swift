@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import Combine
+import FirebaseFirestore
 
 struct CreatePostNavigationBar: View {
     @State private var isPresented = false
@@ -54,6 +55,10 @@ struct CreatePost: View {
     @State private var isShowingImagePicker = false
     @State private var selectedImages: [UIImage] = []
     let numbers = Array(1...10)
+    // set firebase instance reference
+    let db = Firestore.firestore().collection("posts")
+    
+    
     
     var body: some View {
         NavigationStack{

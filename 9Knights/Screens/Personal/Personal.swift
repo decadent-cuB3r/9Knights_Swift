@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct CornerRadiusStyle: ViewModifier {
     var radius: CGFloat
@@ -68,6 +70,7 @@ struct Personal: View {
         }
     }
     @EnvironmentObject var viewModel: AuthenticationViewModel
+    @FirestoreQuery(collectionPath: "users") var user: [UserInfo]
     
     var body: some View {
         NavigationStack{
@@ -106,7 +109,7 @@ struct Personal: View {
                             .padding(.top, 25)
                         VStack(alignment:.leading){
                             HStack(alignment: .bottom){
-                                Text(viewModel.userName)
+                                Text("陳誠")
                                     .font(.system(size: 24, weight: .bold))
                                 Spacer()
                                 Text("24")
