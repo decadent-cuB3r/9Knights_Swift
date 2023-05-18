@@ -18,9 +18,11 @@ struct ContentView: View {
         case .Authenticated :
             TabButton()
                 .environmentObject(viewModel)
-        default :
+        case .Unauthenticated:
             AuthenticationView()
                 .environmentObject(viewModel)
+        default :
+            CreatePost()
         }
     }
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		158869E92A090F990070453B /* EventRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869E82A090F990070453B /* EventRoute.swift */; };
 		158869EB2A09860D0070453B /* EventSetPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869EA2A09860D0070453B /* EventSetPointer.swift */; };
-		158869ED2A09A7B40070453B /* CreatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869EC2A09A7B40070453B /* CreatePost.swift */; };
 		158869EF2A09C0400070453B /* RideSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869EE2A09C0400070453B /* RideSetting.swift */; };
 		158869F12A09C2460070453B /* RideInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158869F02A09C2460070453B /* RideInfo.swift */; };
 		15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F8529F680EB00F892E1 /* RecommendedChat.swift */; };
@@ -24,6 +23,7 @@
 		15BD89CE2A1104B1002826D7 /* PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD89CD2A1104B1002826D7 /* PostContent.swift */; };
 		15BD89D02A13FD5A002826D7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD89CF2A13FD5A002826D7 /* ChatView.swift */; };
 		15BD89D32A166F70002826D7 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 15BD89D22A166F70002826D7 /* Introspect */; };
+		15BD89D82A16862D002826D7 /* CreatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD89D72A16862D002826D7 /* CreatePost.swift */; };
 		1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */; };
 		1B104280291D01DA00DC4676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10427F291D01DA00DC4676 /* ContentView.swift */; };
 		1B104282291D01DB00DC4676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B104281291D01DB00DC4676 /* Assets.xcassets */; };
@@ -93,7 +93,6 @@
 /* Begin PBXFileReference section */
 		158869E82A090F990070453B /* EventRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRoute.swift; sourceTree = "<group>"; };
 		158869EA2A09860D0070453B /* EventSetPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSetPointer.swift; sourceTree = "<group>"; };
-		158869EC2A09A7B40070453B /* CreatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePost.swift; sourceTree = "<group>"; };
 		158869EE2A09C0400070453B /* RideSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideSetting.swift; sourceTree = "<group>"; };
 		158869F02A09C2460070453B /* RideInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideInfo.swift; sourceTree = "<group>"; };
 		15A13F8529F680EB00F892E1 /* RecommendedChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedChat.swift; sourceTree = "<group>"; };
@@ -107,6 +106,8 @@
 		15B2098E29EE978200417973 /* ExploreNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreNotification.swift; sourceTree = "<group>"; };
 		15BD89CD2A1104B1002826D7 /* PostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContent.swift; sourceTree = "<group>"; };
 		15BD89CF2A13FD5A002826D7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		15BD89D72A16862D002826D7 /* CreatePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePost.swift; path = ../../../../../../.Trash/CreatePost.swift; sourceTree = "<group>"; };
+		15BD89DB2A168640002826D7 /* CreatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePost.swift; sourceTree = "<group>"; };
 		1B10427A291D01DA00DC4676 /* 9Knights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9Knights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9KnightsApp.swift; sourceTree = "<group>"; };
 		1B10427F291D01DA00DC4676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -187,6 +188,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15BD89D92A168638002826D7 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CreatePost;
+			path = ../../../../../../.Trash/CreatePost;
+			sourceTree = "<group>";
+		};
+		15BD89DA2A16863B002826D7 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				15BD89DB2A168640002826D7 /* CreatePost.swift */,
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
 		1B104271291D01DA00DC4676 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				858281D529D34B2500560916 /* Explore */,
+				15BD89DA2A16863B002826D7 /* CreatePost */,
 				85442D4029353A6C0084D019 /* Setup */,
 				85442D3D293518390084D019 /* Auth */,
 				857C5C8D29E6AC3A00152D93 /* RideView */,
@@ -306,8 +324,10 @@
 		85442D3D293518390084D019 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				15BD89D72A16862D002826D7 /* CreatePost.swift */,
 				85442D1E292CC69A0084D019 /* Signup.swift */,
 				1B1FA6D62923F6CA00AFCBE2 /* Login.swift */,
+				15BD89D92A168638002826D7 /* CreatePost */,
 				85442D4129353AA50084D019 /* AuthenticationView.swift */,
 			);
 			path = Auth;
@@ -372,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				858281E229E3350900560916 /* EventImage.swift */,
-				158869EC2A09A7B40070453B /* CreatePost.swift */,
 				158869E82A090F990070453B /* EventRoute.swift */,
 				158869EA2A09860D0070453B /* EventSetPointer.swift */,
 				857C5C8E29FAE6C900152D93 /* EventDetails.swift */,
@@ -572,7 +591,6 @@
 				852F0D762923D5A200D57DF8 /* TabButton.swift in Sources */,
 				158869EB2A09860D0070453B /* EventSetPointer.swift in Sources */,
 				15A13F9029F6ED7B00F892E1 /* LevelRules.swift in Sources */,
-				158869ED2A09A7B40070453B /* CreatePost.swift in Sources */,
 				158869E92A090F990070453B /* EventRoute.swift in Sources */,
 				1BD9C61F29356C5700D9833E /* CommunicationSearch.swift in Sources */,
 				15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */,
@@ -580,6 +598,7 @@
 				85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */,
 				15BD89CE2A1104B1002826D7 /* PostContent.swift in Sources */,
 				85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */,
+				15BD89D82A16862D002826D7 /* CreatePost.swift in Sources */,
 				85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */,
 				857C5C912A01156600152D93 /* CustomAlert.swift in Sources */,
 				85442D1F292CC69A0084D019 /* Signup.swift in Sources */,
