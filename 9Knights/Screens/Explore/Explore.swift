@@ -38,7 +38,7 @@ struct CustomNavigationBar: View {
                             }}
                         )
                     NavigationLink(
-                        destination: ExploreNotification(),
+                        destination: ExploreNotification(hideTab: $hideTab),
                         isActive: $isPresentedright,
                         label: {
                             ZStack{
@@ -145,7 +145,7 @@ struct Explore: View {
                     let twoItemGrid = [GridItem(.flexible(),spacing: -10), GridItem(.flexible(),spacing: 0)]
                     LazyVGrid(columns: twoItemGrid,spacing: 20) {
                         ForEach(events) { event in
-                            EventTileView(event: event)
+                            EventTileView(event: event, hideTab: $hideTab)
                         }
                     }
                 }.navigationBarHidden(true)
@@ -156,8 +156,9 @@ struct Explore: View {
     }
 }
 
-//struct Explore_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Explore()
-//    }
-//}
+struct Explore_Previews: PreviewProvider {
+    @State static private var hideTab = false
+    static var previews: some View {
+        Explore(hideTab: $hideTab)
+    }
+}

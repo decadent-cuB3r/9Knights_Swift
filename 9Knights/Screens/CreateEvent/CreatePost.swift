@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import Combine
+import Introspect
 
 struct CreatePostNavigationBar: View {
     @State private var isPresented = false
@@ -34,9 +35,9 @@ struct CreatePostNavigationBar: View {
                     }
                 }
                 Spacer()
-                Text("發布貼文").font(.system(size: 24)).bold()
+                Text("發布貼文").font(.system(size: 20)).bold()
                 Spacer()
-                NavigationLink(destination: TabButton()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 20)).bold() }
+                NavigationLink(destination: TabButton()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 18)).bold() }
             }
             .padding(.horizontal, 16)
         }
@@ -54,8 +55,8 @@ struct CreatePost: View {
     @State private var isShowingImagePicker = false
     @State private var selectedImages: [UIImage] = []
     let numbers = Array(1...10)
-    
     var body: some View {
+        
         NavigationStack{
             VStack{
                 CreatePostNavigationBar()
@@ -85,6 +86,9 @@ struct CreatePost: View {
                         }
                         VStack {
                             TextField("輸入標題...", text: $titletext)
+                                .onTapGesture {
+                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                                }
                         }
                     }.padding(.vertical).frame(maxWidth: 360, maxHeight: 80)
                     
@@ -97,7 +101,11 @@ struct CreatePost: View {
                         Spacer()
                     }.frame(maxWidth: 360)
                     VStack {
-                        TextEditorWithPlaceholder(introtext: $introtext, text: "寫下您想分享的內容...").frame(height: 200)
+                        TextEditorWithPlaceholder(introtext: $introtext, text: "寫下您想分享的內容...")
+                            .frame(height: 200)
+                            .onTapGesture {
+                                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                            }
                         
                     }.frame(maxWidth: 360)
                     VStack {
@@ -108,7 +116,6 @@ struct CreatePost: View {
                                     Image(uiImage: image)
                                         .resizable()
                                         .frame(width: 150, height: 150)
-                                        .aspectRatio(contentMode: .fit)
                                         .cornerRadius(10)
                                     Button(action: {
                                                 selectedImages.removeAll(where: { $0 == image })

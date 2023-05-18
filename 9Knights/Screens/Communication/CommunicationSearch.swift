@@ -11,7 +11,8 @@ struct CommunicationSearch: View {
     @State private var search = ""
     @State private var tags = ["心得","徵人","路況","詢問"]
     @Environment(\.presentationMode) var presentationMode
-    
+    @Binding var hideTab: Bool
+
     var body: some View {
         NavigationStack{
             VStack{
@@ -62,11 +63,19 @@ struct CommunicationSearch: View {
             Spacer()
         }.navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+        .onAppear {
+            hideTab = true
+                    }
+        .onDisappear {
+            hideTab = false
+        }
     }
 }
 
 struct CommunicationSearch_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        CommunicationSearch()
+        CommunicationSearch(hideTab: $hideTab)
     }
 }

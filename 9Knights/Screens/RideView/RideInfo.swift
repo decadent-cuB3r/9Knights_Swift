@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 struct RideInfo: View {
-    @State private var hideTab = false
+    @Binding var hideTab: Bool
     @State private var MapisOn = false
     @State private var BetteryisOn = false
     var body: some View {
@@ -23,14 +23,13 @@ struct RideInfo: View {
         .onAppear {
             hideTab = true
         }
-        .onDisappear {
-            hideTab = false
-        }
     }
 }
 
 struct RideInfo_Previews: PreviewProvider {
+    @State static private var hideTab = true
+
     static var previews: some View {
-        RideInfo()
+        RideInfo(hideTab: $hideTab)
     }
 }

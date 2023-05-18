@@ -13,9 +13,10 @@ import FirebaseFirestoreSwift
 struct AttendEventTileView: View {
     @FirestoreQuery(collectionPath: "areaTags") var tags: [Tag]
     var event: Event
-    
+    @Binding var hideTab: Bool
+
     var body: some View {
-        NavigationLink(destination: EventDetail(event: event)){
+        NavigationLink(destination: EventDetail(hideTab: $hideTab, event: event)){
             HStack{
                 VStack(alignment: .leading){
                     //Event Image

@@ -14,7 +14,8 @@ struct AttendEventNavigationBar: View {
     @State private var isPresented = false
     @State private var isPresentedright = false
     @Environment(\.presentationMode) var presentationMode
-    
+    @Binding var hideTab: Bool
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -41,7 +42,7 @@ struct AttendEventNavigationBar: View {
                 }
                 HStack{
                     Spacer()
-                    Text("參與旅程").font(.system(size: 24)).bold()
+                    Text("參與旅程").font(.system(size: 20)).bold()
                     Spacer()
                 }
             }
@@ -57,6 +58,7 @@ struct AttendEvent: View {
     
     @State private var selectedIndex = 0
      let titles = ["我創建的旅程", "曾參與的旅程"]
+    @Binding var hideTab: Bool
 
     @State private var selectedSegment = 0
     @State private var selectedTab = 0
@@ -64,14 +66,14 @@ struct AttendEvent: View {
     
    var body: some View {
        VStack {
-           AttendEventNavigationBar()
+           AttendEventNavigationBar(hideTab: $hideTab)
            TwoTabSegmentedControl(selectedIndex: $selectedIndex, titles: titles)
            if selectedIndex == 0 {
                //我創建的旅程--------------------------------------------------------------------
                let twoItemGrid = [GridItem(.flexible(),spacing: -10), GridItem(.flexible(),spacing: 0)]
                LazyVStack( spacing: 15) {
                    ForEach(events) { event in
-                       AttendEventTileView(event: event)
+                       AttendEventTileView(event: event, hideTab: $hideTab)
                    }
                }
                Spacer()
@@ -95,11 +97,19 @@ struct AttendEvent: View {
            
        }
        .navigationBarHidden(true)
+       .onAppear {
+           hideTab = true
+                   }
+       .onDisappear {
+           hideTab = false
+       }
    }
 }
 
 struct AttendEvent_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        AttendEvent()
+        AttendEvent(hideTab: $hideTab)
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 var window: UIWindow?
@@ -14,6 +15,9 @@ var window: UIWindow?
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
     return true
+  }
+  func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+            return .portrait // 鎖定螢幕方向為垂直
   }
 }
 

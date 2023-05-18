@@ -24,7 +24,9 @@ struct RideView: View {
                     }
                 VStack{
                     HStack{
-                        Button(action: {dismiss()} ){
+                        Button{
+                        action: do {dismiss()}; hideTab = false
+                        }label: {
                             ZStack{
                                 Circle()
                                     .frame(width: 40, height: 40)
@@ -36,7 +38,7 @@ struct RideView: View {
                             }
                         }
                         Spacer()
-                        NavigationLink(destination: RideSetting()){
+                        NavigationLink(destination: RideSetting(hideTab: $hideTab)){
                             ZStack{
                                 Circle()
                                     .frame(width: 40, height: 40)
@@ -99,7 +101,7 @@ struct RideView: View {
                             .frame(width: 390,height: 95)
                             .foregroundColor(Color("Gray"))
                         HStack(spacing: 30){
-                            NavigationLink(destination: RideInfo()){
+                            NavigationLink(destination: RideInfo(hideTab: $hideTab)){
                                 ZStack{
                                     Circle()
                                         .frame(width: 62, height: 62)
@@ -126,7 +128,7 @@ struct RideView: View {
                                 .cornerRadius(30)
                                 
                             }
-                            NavigationLink(destination: RideSetting()){
+                            NavigationLink(destination: ChatView(hideTab: $hideTab)){
                                 ZStack{
                                     Circle()
                                         .frame(width: 62, height: 62)
@@ -147,9 +149,7 @@ struct RideView: View {
             .onAppear {
                 hideTab = true
                         }
-            .onDisappear {
-                hideTab = false
-            }
+
     }
 }
 struct ButtomMember: View {
@@ -189,9 +189,10 @@ struct ButtomMember: View {
 
 
 
-//struct RideView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RideView()
-//    }
-//}
+struct RideView_Previews: PreviewProvider {
+    @State static private var hideTab = true
+    static var previews: some View {
+        RideView(hideTab: $hideTab)
+    }
+}
 

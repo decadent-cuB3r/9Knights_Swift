@@ -32,6 +32,8 @@ struct ReMapView: UIViewRepresentable {
 struct RecommendNavigationBar: View {
     @State private var isPresented = false
     @State private var isPresentedright = false
+    @Binding var hideTab: Bool
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -41,7 +43,7 @@ struct RecommendNavigationBar: View {
                 Text("旅程").font(.system(size: 32)).bold()
                 Spacer()
                 HStack{
-                    NavigationLink(destination: RecommendedChat()){
+                    NavigationLink(destination: RecommendedChat(hideTab: $hideTab)){
                     label: do {
                             ZStack{
                                 Circle()
@@ -71,7 +73,7 @@ struct RecommendRoot: View {
     var body: some View {
         NavigationView{
             NavigationStack{
-                RecommendNavigationBar()
+                RecommendNavigationBar(hideTab: $hideTab)
                 ScrollView(showsIndicators: false){
                         ScrollView(.horizontal, showsIndicators: false){
                             //UpcomingEvent tile
@@ -324,7 +326,9 @@ struct RecommendRoot: View {
                     .padding(.top,-10)
                 }
             }
-        }
+        }.onAppear {
+            hideTab = false
+                    }
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 struct RideSetting: View {
-    @State private var hideTab = false
+    @Binding var hideTab: Bool
     @State private var MapisOn = false
     @State private var BetteryisOn = false
     var body: some View {
@@ -46,14 +46,13 @@ struct RideSetting: View {
         .onAppear {
             hideTab = true
         }
-        .onDisappear {
-            hideTab = false
-        }
     }
 }
 
 struct RideSetting_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        RideSetting()
+        RideSetting(hideTab: $hideTab)
     }
 }

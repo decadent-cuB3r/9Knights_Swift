@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 struct LevelRules: View {
+    @Binding var hideTab: Bool
     @State private var selectedSegment = 0
     @State private var selectedIndex = 0
-    @Environment(\.presentationMode) var presentationMode
     let levelstar = ["0", "300", "600", "1000"]
     let levelname = ["LV.1 見習騎士","LV.2 白銀騎士","LV.3 黃金騎士","LV.4 騎士團長"]
     let levelcontent = ["開始踏上機車旅行的旅程吧！認識更多的朋友，一起騎車探索美景，一步步地向著夢想前進","愛上團體騎車的樂趣，一步步探索新的路線，認識更多志同道合的朋友，一起分享歡樂，體驗獨特的旅程吧","你的旅程經歷已經到了一個新的境界，不僅能夠帶領團隊也已經是個經歷豐富的車友，成為團隊中的領袖和楷模","你已經成為了團隊的核心，也參與了無數美好的旅程，帶領團隊一起創造美好的回憶和經驗，已是缺一不可的好車友"]
@@ -19,7 +19,7 @@ struct LevelRules: View {
     let star = ["20","30","5","5","20"]
     
    var body: some View {
-       VStack {
+       ZStack(alignment: .topLeading) {
            CustomBar(text: "等級與規則")
            ScrollView(showsIndicators: false){
                HStack(spacing: 0){
@@ -114,18 +114,24 @@ struct LevelRules: View {
                        }.padding(.top,20)
                    }
                }
-               
-           }
-           
+           }.padding(.top, 70)
        }
        .navigationBarBackButtonHidden(false)
        .navigationBarHidden(true)
+       .onAppear {
+           hideTab = true
+                   }
+       .onDisappear {
+           hideTab = false
+       }
        
    }
 }
 
 struct LevelRules_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        LevelRules()
+        LevelRules(hideTab: $hideTab)
     }
 }

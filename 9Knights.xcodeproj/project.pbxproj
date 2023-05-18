@@ -21,6 +21,9 @@
 		15A13F9229F6F08D00F892E1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F9129F6F08D00F892E1 /* CustomNavigationBar.swift */; };
 		15A13F9429F6FF5400F892E1 /* TwoTabSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A13F9329F6FF5400F892E1 /* TwoTabSegmentedControl.swift */; };
 		15B2098F29EE978200417973 /* ExploreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2098E29EE978200417973 /* ExploreNotification.swift */; };
+		15BD89CE2A1104B1002826D7 /* PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD89CD2A1104B1002826D7 /* PostContent.swift */; };
+		15BD89D02A13FD5A002826D7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD89CF2A13FD5A002826D7 /* ChatView.swift */; };
+		15BD89D32A166F70002826D7 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 15BD89D22A166F70002826D7 /* Introspect */; };
 		1B10427E291D01DA00DC4676 /* 9KnightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */; };
 		1B104280291D01DA00DC4676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10427F291D01DA00DC4676 /* ContentView.swift */; };
 		1B104282291D01DB00DC4676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B104281291D01DB00DC4676 /* Assets.xcassets */; };
@@ -102,6 +105,8 @@
 		15A13F9129F6F08D00F892E1 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		15A13F9329F6FF5400F892E1 /* TwoTabSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTabSegmentedControl.swift; sourceTree = "<group>"; };
 		15B2098E29EE978200417973 /* ExploreNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreNotification.swift; sourceTree = "<group>"; };
+		15BD89CD2A1104B1002826D7 /* PostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContent.swift; sourceTree = "<group>"; };
+		15BD89CF2A13FD5A002826D7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		1B10427A291D01DA00DC4676 /* 9Knights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9Knights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B10427D291D01DA00DC4676 /* 9KnightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9KnightsApp.swift; sourceTree = "<group>"; };
 		1B10427F291D01DA00DC4676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +164,7 @@
 				1B3049BF2925E2F500FAE9B4 /* FirebaseAnalytics in Frameworks */,
 				1B3049C12925E2F500FAE9B4 /* FirebaseAuth in Frameworks */,
 				1B3049D12928823300FAE9B4 /* FirebaseAnalyticsSwift in Frameworks */,
+				15BD89D32A166F70002826D7 /* Introspect in Frameworks */,
 				1B3049D32928860600FAE9B4 /* FirebaseFirestoreSwift in Frameworks */,
 				857C5C9A2A0934A600152D93 /* FirebaseStorage in Frameworks */,
 			);
@@ -242,7 +248,6 @@
 		1B1042B3292331B700DC4676 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				857C5C982A0798BE00152D93 /* CreatePost */,
 				858281D529D34B2500560916 /* Explore */,
 				85442D4029353A6C0084D019 /* Setup */,
 				85442D3D293518390084D019 /* Auth */,
@@ -323,15 +328,9 @@
 				1B14C6902932A26A00C150F2 /* RideView.swift */,
 				158869F02A09C2460070453B /* RideInfo.swift */,
 				158869EE2A09C0400070453B /* RideSetting.swift */,
+				15BD89CF2A13FD5A002826D7 /* ChatView.swift */,
 			);
 			path = RideView;
-			sourceTree = "<group>";
-		};
-		857C5C982A0798BE00152D93 /* CreatePost */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CreatePost;
 			sourceTree = "<group>";
 		};
 		858281D429D0191000560916 /* Personal */ = {
@@ -373,8 +372,8 @@
 			isa = PBXGroup;
 			children = (
 				858281E229E3350900560916 /* EventImage.swift */,
-				158869E82A090F990070453B /* EventRoute.swift */,
 				158869EC2A09A7B40070453B /* CreatePost.swift */,
+				158869E82A090F990070453B /* EventRoute.swift */,
 				158869EA2A09860D0070453B /* EventSetPointer.swift */,
 				857C5C8E29FAE6C900152D93 /* EventDetails.swift */,
 			);
@@ -386,6 +385,7 @@
 			children = (
 				1BD9C61E29356C5700D9833E /* CommunicationSearch.swift */,
 				1B1042B1291EC46500DC4676 /* Communication.swift */,
+				15BD89CD2A1104B1002826D7 /* PostContent.swift */,
 			);
 			path = Communication;
 			sourceTree = "<group>";
@@ -422,6 +422,7 @@
 				1B3049D02928823300FAE9B4 /* FirebaseAnalyticsSwift */,
 				1B3049D22928860600FAE9B4 /* FirebaseFirestoreSwift */,
 				857C5C992A0934A600152D93 /* FirebaseStorage */,
+				15BD89D22A166F70002826D7 /* Introspect */,
 			);
 			productName = 9Knights;
 			productReference = 1B10427A291D01DA00DC4676 /* 9Knights.app */;
@@ -497,6 +498,7 @@
 			mainGroup = 1B104271291D01DA00DC4676;
 			packageReferences = (
 				1B3049BD2925E2F500FAE9B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				15BD89D12A166F70002826D7 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 1B10427B291D01DA00DC4676 /* Products */;
 			projectDirPath = "";
@@ -576,6 +578,7 @@
 				15A13F8629F680EB00F892E1 /* RecommendedChat.swift in Sources */,
 				85442D21292D41DD0084D019 /* SetupProfile.swift in Sources */,
 				85442D23292E08F10084D019 /* SetupPhoto.swift in Sources */,
+				15BD89CE2A1104B1002826D7 /* PostContent.swift in Sources */,
 				85442D1D292CBBEB0084D019 /* SplashScreenView.swift in Sources */,
 				85442D4229353AA50084D019 /* AuthenticationView.swift in Sources */,
 				857C5C912A01156600152D93 /* CustomAlert.swift in Sources */,
@@ -586,6 +589,7 @@
 				857C5C932A01158800152D93 /* CustomAlertButton.swift in Sources */,
 				1B3049D629288A6F00FAE9B4 /* Event.swift in Sources */,
 				858281DE29DBEC4500560916 /* EventViewModel.swift in Sources */,
+				15BD89D02A13FD5A002826D7 /* ChatView.swift in Sources */,
 				15A13F9229F6F08D00F892E1 /* CustomNavigationBar.swift in Sources */,
 				1B1FA6D72923F6CA00AFCBE2 /* Login.swift in Sources */,
 				1B14C68B292FFCB100C150F2 /* SegmentedControl.swift in Sources */,
@@ -941,6 +945,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		15BD89D12A166F70002826D7 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		1B3049BD2925E2F500FAE9B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -952,6 +964,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		15BD89D22A166F70002826D7 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15BD89D12A166F70002826D7 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		1B3049BE2925E2F500FAE9B4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1B3049BD2925E2F500FAE9B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

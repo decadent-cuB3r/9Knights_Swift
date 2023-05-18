@@ -94,8 +94,9 @@ struct ExploreSearch: View {
     }
 }
 
-//struct ExploreSearch_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExploreSearch()
-//    }
-//}
+struct ExploreSearch_Previews: PreviewProvider {
+    @State static private var hideTab = false
+    static var previews: some View {
+        ExploreSearch(hideTab: $hideTab)
+    }
+}

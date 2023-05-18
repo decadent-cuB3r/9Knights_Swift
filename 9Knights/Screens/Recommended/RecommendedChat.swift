@@ -63,7 +63,8 @@ struct RecommendedChat: View{
     @State private var selectedSegment = 0
     @State private var selectedTab = 0
     @Environment(\.presentationMode) var presentationMode
-    
+    @Binding var hideTab: Bool
+
     var body: some View{
         VStack{
             CustomBar(text: "聊天室")
@@ -87,12 +88,19 @@ struct RecommendedChat: View{
                                .tag(1)
                        }}
         }.navigationBarHidden(true)
-        
+            .onAppear {
+                hideTab = true
+                        }
+            .onDisappear {
+                hideTab = false
+            }
     }
 }
 
 struct RecommendedChat_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        RecommendedChat()
+        RecommendedChat(hideTab: $hideTab)
     }
 }

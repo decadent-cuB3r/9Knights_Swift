@@ -12,7 +12,8 @@ struct MyPost: View {
     @State private var selectedSegment = 0
     @State private var selectedTab = 0
     @Environment(\.presentationMode) var presentationMode
-    
+    @Binding var hideTab: Bool
+
    var body: some View {
        VStack {
            CustomBar(text: "我的貼文")
@@ -79,11 +80,19 @@ struct MyPost: View {
            Spacer()
        }
        .navigationBarHidden(true)
+       .onAppear {
+           hideTab = true
+                   }
+       .onDisappear {
+           hideTab = false
+       }
    }
 }
 
 struct MyPost_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        MyPost()
+        MyPost(hideTab: $hideTab)
     }
 }

@@ -37,7 +37,7 @@ struct CustomBar: View {
                 }
                 HStack{
                     Spacer()
-                    Text(text).font(.system(size: 24)).bold()
+                    Text(text).font(.system(size: 20)).bold()
                     Spacer()
                 }
             }

@@ -55,9 +55,9 @@ struct EventRouteNavigationBar: View {
                     }
                 }
                 Spacer()
-                Text("設置中途點").font(.system(size: 24)).bold()
+                Text("設置中途點").font(.system(size: 20)).bold()
                 Spacer()
-                NavigationLink(destination: EventDetails()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 20)).bold() }
+                NavigationLink(destination: EventDetails()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 18)).bold() }
             }
             .padding(.horizontal, 16)
         }

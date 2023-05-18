@@ -158,8 +158,8 @@ private struct PopBackground: View {
             return path
         }
     }
+    @State private var hideTab: Bool = false
 
-    @State private var hideTab = false
     var body: some View {
         
             ZStack{
@@ -170,9 +170,9 @@ private struct PopBackground: View {
                 case 1 :
                     RecommendRoot(hideTab: $hideTab)
                 case 3 :
-                    Communication()
+                    Communication(hideTab: $hideTab)
                 default:
-                    Personal()
+                    Personal(hideTab: $hideTab)
                         .environmentObject(viewModel)
                 }
                 

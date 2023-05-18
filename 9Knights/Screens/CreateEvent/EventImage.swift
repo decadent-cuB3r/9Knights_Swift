@@ -35,10 +35,10 @@ struct EventImageNavigationBar: View {
                     }
                 }
                 Spacer()
-                Text("旅程封面").font(.system(size: 24)).bold()
+                Text("旅程封面").font(.system(size: 20)).bold()
                     .padding(.leading, 20)
                 Spacer()
-                NavigationLink(destination: EventDetails()){ Text("下一步").foregroundColor(Color("Red")).font(.system(size: 20)).bold() }
+                NavigationLink(destination: EventDetails()){ Text("下一步").foregroundColor(Color("Red")).font(.system(size: 18)).bold() }
             }
             .padding(.horizontal, 16)
         }

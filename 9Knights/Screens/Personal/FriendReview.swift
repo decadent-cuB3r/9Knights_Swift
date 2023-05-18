@@ -24,7 +24,8 @@ struct ReviewProgressBar: View {
 }
 
 struct FriendReview: View {
-    
+    @Binding var hideTab: Bool
+
    var body: some View {
        VStack {
            CustomBar(text: "車友評價")
@@ -134,11 +135,19 @@ struct FriendReview: View {
            
        }
        .navigationBarHidden(true)
+       .onAppear {
+           hideTab = true
+                   }
+       .onDisappear {
+           hideTab = false
+       }
    }
 }
 
 struct FriendReview_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        FriendReview()
+        FriendReview(hideTab: $hideTab)
     }
 }

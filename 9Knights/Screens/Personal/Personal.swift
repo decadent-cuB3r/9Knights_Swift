@@ -68,7 +68,8 @@ struct Personal: View {
         }
     }
     @EnvironmentObject var viewModel: AuthenticationViewModel
-    
+    @Binding var hideTab: Bool
+
     var body: some View {
         NavigationStack{
             ZStack{
@@ -85,7 +86,7 @@ struct Personal: View {
                             .cornerRadius(20,corners: [.bottomLeft, .bottomRight])
                         
                         VStack(alignment: .trailing){
-                            NavigationLink(destination: Setting().environmentObject(viewModel)){
+                            NavigationLink(destination: Setting(hideTab: $hideTab).environmentObject(viewModel)){
                                 ZStack{
                                     Circle()
                                         .frame(width: 40, height: 40)
@@ -146,7 +147,7 @@ struct Personal: View {
                         } .padding(.top, 30)
                     }.padding(.top, -15)
                     HStack(spacing: 30){
-                        NavigationLink(destination: MyPost()){
+                        NavigationLink(destination: MyPost(hideTab: $hideTab)){
                             VStack(spacing: 5){
                                 Text("發布貼文").bold().font(.system(size: 12))
                                 Text("0").bold().font(.system(size: 24))
@@ -155,7 +156,7 @@ struct Personal: View {
                             .cornerRadius(10)
                             .foregroundColor(.black)
                         }
-                        NavigationLink(destination: AttendEvent()){
+                        NavigationLink(destination: AttendEvent(hideTab: $hideTab)){
                             VStack(spacing: 5){
                                 Text("參與旅程").bold().font(.system(size: 12))
                                 Text("0").bold().font(.system(size: 24))
@@ -164,7 +165,7 @@ struct Personal: View {
                             .cornerRadius(10)
                             .foregroundColor(.black)
                         }
-                        NavigationLink(destination: FriendReview()){
+                        NavigationLink(destination: FriendReview(hideTab: $hideTab)){
                             VStack(spacing: 5){
                                 Text("車友評價").bold().font(.system(size: 12))
                                 Text("0").bold().font(.system(size: 24))
@@ -181,7 +182,7 @@ struct Personal: View {
                             ProgressBar()
                             HStack{
                                 Spacer()
-                                NavigationLink(destination: LevelRules()){
+                                NavigationLink(destination: LevelRules(hideTab: $hideTab)){
                                     VStack(spacing: 5){
                                         Text("查看等級與規則")
                                             .bold().font(.system(size: 10))
@@ -212,12 +213,16 @@ struct Personal: View {
                 
                 
             }
+        }.onAppear {
+            hideTab = false
         }
     }
 }
 
 struct Personal_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        Personal().environmentObject(AuthenticationViewModel())
+        Personal(hideTab: $hideTab).environmentObject(AuthenticationViewModel())
     }
 }

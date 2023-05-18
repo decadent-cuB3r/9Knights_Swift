@@ -8,14 +8,13 @@
 import SwiftUI
 struct Setting: View {
     @EnvironmentObject var viewModel: AuthenticationViewModel
-    @State private var hideTab = false
+    @Binding var hideTab: Bool
     @State private var isOn = false
     private func signOut() {
         viewModel.signOut()
     }
     var body: some View {
         NavigationStack{
-            ScrollView{
                 VStack{
                     CustomBar(text: "設定")
                     VStack{
@@ -46,23 +45,20 @@ struct Setting: View {
                             Image("BlackArrowRight")
                         }.padding(.horizontal).frame(height: 50)
                         Divider()
-                        Spacer()
-                        VStack{
-                            Divider()
-                            Button(action: signOut) {
-                                
-                                Text("登出")
-                                    .font(.system(size: 20)).bold()
-                                    .foregroundColor(Color("Red"))
-                                Spacer()
-                            }.padding()
-                            Divider()
-                        }
-                        
-                        
                     }
                 }
-            }
+                Spacer()
+                VStack{
+                    Divider()
+                    Button(action: signOut) {
+                        
+                        Text("登出")
+                            .font(.system(size: 20)).bold()
+                            .foregroundColor(Color("Red"))
+                        Spacer()
+                    }.padding()
+                    Divider()
+                }.padding(.vertical)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
@@ -75,7 +71,9 @@ struct Setting: View {
 }
 
 struct Setting_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        Setting()
+        Setting(hideTab: $hideTab)
     }
 }

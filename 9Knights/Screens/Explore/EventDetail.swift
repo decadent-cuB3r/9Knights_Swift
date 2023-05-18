@@ -28,7 +28,8 @@ struct MapView: UIViewRepresentable {
 }
 
 struct EventDetail: View {
-    
+    @Binding var hideTab: Bool
+
     @Environment(\.presentationMode) var presentationMode
     @State private var isExpanded = false
     @State var select: Int = 0
@@ -62,6 +63,7 @@ struct EventDetail: View {
                                     
                                     Button{
                                         self.presentationMode.wrappedValue.dismiss()
+                                        ;hideTab = false
                                     }label: {
                                         ZStack{
                                             
@@ -267,11 +269,19 @@ struct EventDetail: View {
                 
             }.navigationBarBackButtonHidden(true)
         }.navigationBarBackButtonHidden(true)
+            .onAppear {
+                hideTab = true
+            }
+            .onDisappear {
+                hideTab = false
+            }
     }
 }
 
-//struct EventDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Explore()
-//    }
-//}
+struct EventDetail_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
+    static var previews: some View {
+        Explore(hideTab: $hideTab)
+    }
+}

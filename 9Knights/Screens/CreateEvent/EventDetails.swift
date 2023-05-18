@@ -35,9 +35,9 @@ struct EventDetailsNavigationBar: View {
                     }
                 }
                 Spacer()
-                Text("旅程內容").font(.system(size: 24)).bold()
+                Text("旅程內容").font(.system(size: 20)).bold()
                 Spacer()
-                NavigationLink(destination: TabButton()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 20)).bold() }
+                NavigationLink(destination: TabButton()){ Text("完成").foregroundColor(Color("Red")).font(.system(size: 18)).bold() }
             }
             .padding(.horizontal, 16)
         }
@@ -152,6 +152,9 @@ struct EventDetails: View {
                         }
                         VStack {
                             TextField("輸入標題...", text: $titletext)
+                                .onTapGesture {
+                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                                }
                         }
                     }.padding(.vertical).frame(maxWidth: 360, maxHeight: 80)
                     
@@ -165,6 +168,9 @@ struct EventDetails: View {
                     }.frame(maxWidth: 360)
                     ZStack(alignment: .topLeading) {
                         TextEditorWithPlaceholder(introtext: $introtext, text: "寫下您想如何介紹您的旅程...")
+                            .onTapGesture {
+                                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                            }
                     }.frame(maxWidth: 360)
                 }.padding(.top)
                 Divider()
@@ -254,6 +260,9 @@ struct EventDetails: View {
                     VStack(alignment: .leading){
                         Text("人數上限").font(.system(size: 20)).bold()
                         TextField("輸入預計參與人數(數字)...", text: $ppltext)
+                            .onTapGesture {
+                                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                            }
                     }
                 }.frame(height:80).frame(maxWidth: 360)
                 Divider()

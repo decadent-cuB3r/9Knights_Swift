@@ -10,7 +10,8 @@ struct NotificationNavigationBar: View {
     @State private var isPresented = false
     @State private var isPresentedright = false
     @Environment(\.presentationMode) var presentationMode
-    
+    @Binding var hideTab: Bool
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -21,6 +22,7 @@ struct NotificationNavigationBar: View {
             HStack {
                 Button{
                     self.presentationMode.wrappedValue.dismiss()
+                    ;hideTab = false
                 }label: {
                     ZStack{
                         Circle()
@@ -33,7 +35,7 @@ struct NotificationNavigationBar: View {
                     }
                 }
                 Spacer()
-                Text("通知").font(.system(size: 24)).bold()
+                Text("通知").font(.system(size: 20)).bold()
                     .padding(.leading, 25)
                 Spacer()
                 Button{
@@ -159,10 +161,11 @@ struct ExploreNotification: View {
     @State private var selectedSegment = 0
     @State private var selectedTab = 0
     @Environment(\.presentationMode) var presentationMode
-    
+    @Binding var hideTab: Bool
+
    var body: some View {
        VStack {
-           NotificationNavigationBar()
+           NotificationNavigationBar(hideTab: $hideTab)
            VStack(spacing: 0) {
                       ZStack {
                           Color.white
@@ -184,11 +187,19 @@ struct ExploreNotification: View {
                       }}
        }
        .navigationBarHidden(true)
+       .onAppear {
+           hideTab = true
+                   }
+       .onDisappear {
+           hideTab = false
+       }
    }
 }
 
 struct ExploreNotification_Previews: PreviewProvider {
+    @State static private var hideTab = false
+
     static var previews: some View {
-        ExploreNotification()
+        ExploreNotification(hideTab: $hideTab)
     }
 }
